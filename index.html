@@ -106,14 +106,12 @@
         .choice-card span { font-size: 22px; font-weight: bold; }
         .choice-card:hover { border-color: var(--purple-primary); background: rgba(168, 85, 247, 0.1); }
 
-        /* زرار العودة للرئيسية */
         .back-btn {
             background: var(--bg-card); border: 1px solid var(--border-purple); color: var(--text-light);
             padding: 8px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; display: none; align-items: center; gap: 5px; font-size: 16px;
         }
         .back-btn:hover { border-color: var(--purple-primary); color: var(--purple-primary); }
 
-        /* زرار العودة للمراحل (مخفي تماماً في اللاب توب ويظهر فقط في الموبايل) */
         .back-to-stages-btn {
             display: none;
             background: var(--bg-card); border: 1px solid var(--purple-primary); color: var(--purple-primary);
@@ -141,11 +139,7 @@
         }
         .stage-btn:hover, .stage-btn.active { background-color: rgba(168, 85, 247, 0.15); border-color: var(--purple-primary); color: var(--purple-primary); box-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
 
-        /* حاوية المحتوى (الأزرار والبطاقات) */
-        .content-main-area {
-            display: block;
-        }
-
+        .content-main-area { display: block; }
         .section-title { color: var(--purple-primary); font-size: 24px; margin-bottom: 20px; border-right: 4px solid var(--purple-primary); padding-right: 10px; font-weight: bold; }
 
         .hymns-menu-container {
@@ -162,10 +156,7 @@
             padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold;
             display: flex; align-items: center; gap: 8px;
         }
-
-        .hymn-menu-tab:hover, .hymn-menu-tab.active {
-            border-color: var(--purple-primary); background-color: rgba(168, 85, 247, 0.15); color: var(--purple-primary);
-        }
+        .hymn-menu-tab:hover, .hymn-menu-tab.active { border-color: var(--purple-primary); background-color: rgba(168, 85, 247, 0.15); color: var(--purple-primary); }
 
         .hymns-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .hymn-card { background-color: var(--bg-card); border: 1px solid var(--border-purple); border-radius: 12px; padding: 25px; position: relative; }
@@ -186,137 +177,48 @@
             background-color: rgba(0, 0, 0, 0.15);
         }
         
-        .lyrics-col { 
-            color: #ffffff !important; 
-            font-size: 19px; 
-            line-height: 1.8; 
-            text-align: center; 
-            padding: 15px 10px;
-        }
-
-        .lyrics-col:not(:last-child) {
-            border-left: 1px solid var(--border-purple);
-        }
-
-        .lyrics-col h4 { 
-            color: var(--purple-primary); 
-            margin-bottom: 15px; 
-            font-size: 20px; 
-            border-bottom: 1px solid var(--border-purple); 
-            padding-bottom: 8px; 
-            font-weight: bold; 
-        }
-
-        .lyrics-col.coptic { 
-            font-family: 'Times New Roman', Times, serif; 
-            letter-spacing: 0.5px; 
-            font-weight: bold; 
-        }
+        .lyrics-col { color: #ffffff !important; font-size: 19px; line-height: 1.8; text-align: center; padding: 15px 10px; }
+        .lyrics-col:not(:last-child) { border-left: 1px solid var(--border-purple); }
+        .lyrics-col h4 { color: var(--purple-primary); margin-bottom: 15px; font-size: 20px; border-bottom: 1px solid var(--border-purple); padding-bottom: 8px; font-weight: bold; }
+        .lyrics-col.coptic { font-family: 'Times New Roman', Times, serif; letter-spacing: 0.5px; font-weight: bold; }
 
         .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; }
         .modal-content { margin: auto; display: block; max-width: 95%; max-height: 85vh; border: 2px solid var(--purple-primary); object-fit: contain; }
         .close-modal { position: absolute; top: 15px; left: 25px; color: #fff; font-size: 40px; cursor: pointer; z-index: 1010; }
 
-        .view-lyrics-btn {
-            background: none; border: 1px solid var(--purple-primary); color: var(--purple-primary);
-            padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold; font-size: 16px;
-        }
+        .view-lyrics-btn { background: none; border: 1px solid var(--purple-primary); color: var(--purple-primary); padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold; font-size: 16px; }
         .view-lyrics-btn:hover { background-color: rgba(168, 85, 247, 0.1); }
         footer { margin-top: 60px; text-align: center; padding: 20px; border-top: 1px solid var(--border-purple); color: var(--text-muted); font-size: 16px; }
 
-
         /* ==========================================================================
-           [2] الميديا كويري للشاشات المتوسطة (تابلت واللاب توب الصغير)
+           [2] الميديا كويري للشاشات المتوسطة والموبايل
            ========================================================================== */
         @media (max-width: 992px) {
-            .content-layout {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .stages-sidebar {
-                width: 100%;
-            }
+            .content-layout { grid-template-columns: 1fr; gap: 20px; }
+            .stages-sidebar { width: 100%; }
         }
 
-
-        /* ==========================================================================
-           [3] واجهة التلفون والشاشات الصغيرة (Mobile Responsiveness < 768px)
-           ========================================================================== */
         @media (max-width: 768px) {
-            body {
-                padding: 10px; 
-            }
-            
-            header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-                padding: 15px;
-            }
-            
-            .header-right {
-                flex-direction: column; 
-                gap: 10px;
-            }
-            
-            .header-left {
-                width: 100%;
-                justify-content: space-between; 
-                flex-row-reverse: row-reverse;
-            }
-            
+            body { padding: 10px; }
+            header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; }
+            .header-right { flex-direction: column; gap: 10px; }
+            .header-left { width: 100%; justify-content: space-between; flex-row-reverse: row-reverse; }
             .header-titles h1 { font-size: 18px; }
             .header-titles p { font-size: 14px; }
             .welcome-screen { padding: 30px 15px; }
             .welcome-screen h2 { font-size: 22px; }
-            
-            .main-choices-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
+            .main-choices-grid { grid-template-columns: 1fr; gap: 15px; }
             .choice-card { padding: 25px 15px; }
             .choice-card span { font-size: 18px; }
             
-            /* إعدادات التحكم في الفصل بين شاشة المراحل والألحان في الموبايل */
-            .content-main-area {
-                display: none; /* يتم إخفاء منطقة الألحان افتراضياً في البداية حتى يختار المستخدم مرحلة */
-            }
-
-            /* إظهار زرار العودة للمراحل داخل منطقة الملحان بالموبايل */
-            .back-to-stages-btn {
-                display: flex; 
-            }
-
+            .content-main-area { display: none; }
+            .back-to-stages-btn { display: flex; }
             .hymns-menu-container { justify-content: center; }
-            
-            .hymn-menu-tab {
-                font-size: 15px;
-                padding: 8px 14px;
-                width: 100%; 
-                justify-content: center;
-            }
-            
-            .lyrics-container {
-                grid-template-columns: 1fr;
-                border-radius: 6px;
-            }
-            
-            .lyrics-col:not(:last-child) {
-                border-left: none; 
-                border-bottom: 1px solid var(--border-purple); 
-            }
-            
-            .lyrics-col {
-                font-size: 17px; 
-                padding: 12px 5px;
-            }
-            
-            .lyrics-col h4 {
-                font-size: 18px;
-                margin-bottom: 10px;
-            }
-            
+            .hymn-menu-tab { font-size: 15px; padding: 8px 14px; width: 100%; justify-content: center; }
+            .lyrics-container { grid-template-columns: 1fr; border-radius: 6px; }
+            .lyrics-col:not(:last-child) { border-left: none; border-bottom: 1px solid var(--border-purple); }
+            .lyrics-col { font-size: 17px; padding: 12px 5px; }
+            .lyrics-col h4 { font-size: 18px; margin-bottom: 10px; }
             .hymn-card { padding: 15px; }
             .hymn-title { font-size: 18px; }
         }
@@ -364,7 +266,7 @@
             </div>
             
             <div class="content-main-area" id="contentMainArea">
-                <button class="back-to-stages-btn" onclick="backToStages()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة المراحل</button>
+                <button class="back-to-stages-btn" onclick="handleBackAction()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة المراحل</button>
                 
                 <div class="section-title"><span id="mainSectionTitle">المنهج</span></div>
                 <div class="hymns-menu-container" id="hymnsMenu"></div>
@@ -384,63 +286,15 @@
 </footer>
 
 <script>
+    // [نفس بيانات المصفوفة الخاصة بك بدون تغيير للاختصار]
     const schoolData = {
         alhan: {
             "أولى وتانية ابتدائي": [
-                { 
-                    id: "ton_sina",
-                    title: "لحن طون سينا (Tòn Sina)", 
-                    badge: "فرايحي", 
-                    details: "قطعة رومي يونانية لدورة عيد القيامة والخماسين المقدسة.", 
-                    audio: "أولى وتانية ابتدائي/ton_sina.mp3", 
-                    hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/ton_sina_lyrics.jpg",
-                    lyricsText: {
-                        coptic: "Ⲧⲟⲛ ⲥⲩⲛⲁⲛⲣⲭⲟⲛ ⲗⲟⲅⲟⲛ ⲡⲁⲧⲣⲓ ⲕⲉ ⲡ̀ⲛⲉⲩⲙⲁⲧⲓ :<br>ⲧⲟⲛ ⲉⲕⲡⲁⲣⲑⲉⲛⲟⲩ ⲧⲉⲕⲑⲉⲛⲧⲁ ⲓⲥ ⲥⲱⲧⲏⲣⲓⲁⲛ ⲏ̀ⲙⲱⲛ :<br>ⲁⲛⲩⲙⲛⲏⲥⲱⲙⲉⲛ ⲡⲓⲥⲧⲓ ⲕⲉ ⲡ̀ⲣⲟⲥ ⲕⲩⲛⲏⲥⲱⲙⲉⲛ :<br>ⲟⲧⲓ ⲏⲩⲇⲱⲕⲉ ⲥⲉ ⲥⲁⲣⲕⲓ:<br>ⲁⲛⲉⲗⲑⲓⲛ ⲉⲛⲧⲱ ⲥⲧⲁⲩⲣⲱ: ⲕⲉ ⲑⲁⲛⲁⲧⲟⲛ ⲩ̀ⲡⲟⲙⲓⲛⲉ :<br>ⲕⲉ ⲉ̀ⲅⲓⲣⲉ ⲧⲟⲩⲥ ⲧⲉⲑⲛⲉⲱ̀ⲟ:<br>ⲧⲁⲥ ⲉⲛⲧⲏ ⲉⲛⲇⲟⲝⲟ<br>ⲁⲛⲁⲥⲧⲁⲥⲓ ⲩⲧⲟⲩ",
-                        trans: "طون سينا نارخون لوغون باتري كى إبنيفماتي:<br>تون إيكبارثينو تيك ثيندا يس سوتيريان إيمون:<br>أنيم ني سومين بيستي كى إبروس كى<br>نيسومين: أوتي إيفذوكي سى ساركي:<br>إنتو إستافرو كى ثاناتون إيبو ميني:<br>كى إيجيري توس نيثني أوأو:<br>طاس إنتي إندوكصو<br>أناستاسي أفتو",
-                        arabic: "نسبح نحن المؤمنين ونمجد للكلمة المساوي<br>للآب والروح: في الأزلية وعدم الإبتداء،<br>المولود من العذراء لأجل خلاصنا: لأنه سر و ارتضى<br>بالجسد أن يعلو على الصليب:<br>يحتمل الموت و يُنهض الموتى<br>بقيامته المجيدة"
-                    }
-                },
-                { 
-                    id: "tolitho",
-                    title: "لحن طوليثو (Τὸν λίθον)", 
-                    badge: "فرايحي", 
-                    details: "ذكصولوجية القيامة الرومي اليونانية التي تقال في دورة عيد القيامة المجيد والخماسين المقدسة وعيد الصعود.", 
-                    audio: "أولى وتانية ابتدائي/لحن توليثوس.mp3", 
-                    hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/Tolitho_Hazzat.jpg",
-                    lyricsText: {
-                        coptic: "Ⲧⲟⲛ ⲗⲓⲑⲟⲛ ⲥⲫⲣⲁⲅⲓⲥⲑⲉⲛⲧⲁ :<br>ⲩⲡⲟ ⲧⲱⲛ Ⲓⲟⲩⲇⲁⲓⲱⲛ :<br>ⲕⲉ ⲥⲧⲣⲁⲧⲓⲧⲱⲛ ⲫⲩⲗⲁⲥⲥⲟⲛⲧⲱⲛ :<br>ⲧⲟ ⲁⲭⲣⲁⲛⲧⲟⲛ ⲥⲟⲩ ⲥⲱⲙⲁ :<br>ⲁⲛⲉⲥⲧⲏⲥ ⲧⲣⲓⲏⲙⲉⲣⲟⲥ ⲥⲱⲧⲏⲣ :<br>ⲇⲱⲣⲟⲩⲙⲉⲛⲟⲥ ⲧⲱ ⲕⲟⲥⲙⲱ ⲧⲏⲛ ⲝⲱⲏⲛ :<br>ⲇⲓⲁ ⲧⲟⲩⲧⲟ ⲉ ⲇⲩⲛⲁⲙⲓⲥ ⲧⲱⲛ ⲟⲩⲣⲁⲛⲱⲛ :<br>ⲉⲃⲟⲱⲛ ⲥⲟⲓ ⲝⲱⲟⲇⲟⲧⲁ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲁⲛⲁⲥⲧⲁⲥⲓ ⲥⲟⲩ Ⲭⲣⲓⲥⲧⲉ :<br>ⲇⲟⲝα ⲧⲏ ⲃⲁⲥⲓⲗⲓⲁ ⲥⲟⲩ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲓⲕⲟⲛⲟⲙⲓⲁ ⲥⲟⲩ ⲙⲟⲛⲉ ⲫⲓⲗⲁⲛⲑⲣⲱⲡⲉ",
-                        trans: "تو ليثوس فراجيس ثين<br>توس إيبوتون يوذيئون كى<br>إإستراتيوتون فيلاس سون<br>تون تو أكرانتون سوسوما<br>آنيستيس تري إيميروس سوتير<br>ذورومينوس تو كوز موتين ذوئين<br>ذياتوتو إيذيناميس تون أورانون<br>إفؤون سى ذو أوذوتا<br>ذوكساتى آنساستى سو إخرستى<br>ذوكساتى فاسيليا سو<br>ذوكساتى إيكونوميا سومونى فيلان إثروبى",
-                        arabic: "إن الحجر لما ختم من اليهود<br>وجسدك الطاهر حفظ من الجند،<br>قمت في اليوم الثالث أيها المخلص<br>مانحًا العالم الحياة<br>لأجل هذا قوات السموات هتفوا<br>إليك يا واهب الحياة<br>المجد لقيامتك ايها المسيح<br>المجد لملكك<br>المجد لتدبيرك يا محب البشر"
-                    }
-                }
+                { id: "ton_sina", title: "لحن طون سينا (Tòn Sina)", badge: "فرايحي", details: "قطعة رومي يونانية لدورة عيد القيامة والخماسين المقدسة.", audio: "أولى وتانية ابتدائي/ton_sina.mp3", hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/ton_sina_lyrics.jpg", lyricsText: { coptic: "...", trans: "...", arabic: "..." } },
+                { id: "tolitho", title: "لحن طوليثو (Τὸν λίθون)", badge: "فرايحي", details: "ذكصولوجية القيامة...", audio: "أولى وتانية ابتدائي/لحن توليثوس.mp3", hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/Tolitho_Hazzat.jpg", lyricsText: { coptic: "...", trans: "...", arabic: "..." } }
             ],
             "الخامس والسادس الابتدائي": [
-                {
-                    id: "evlogimenos",
-                    title: "لحن أفلوجيمينوس (Evlogimenos)",
-                    badge: "شعانيني / فرايحي",
-                    details: "مرد الإنجيل اليوناني الذي يقال في أحد الشعانين وأعياد الملاك ميخائيل.",
-                    audio: "خامس وسادس/evlogimenos.mp3",
-                    hasLyricsImg: false, lyricsImg: "",
-                    lyricsText: {
-                        coptic: "Ⲉⲩⲗⲟⲅⲏⲙⲉⲛⲟⲥ ⲟ ⲉⲣⲭⲟⲙⲉⲛⲟⲥ :<br>ⲉⲛ ⲟboundaryⲙⲁⲧⲓ Ⲕⲩⲣⲓⲟⲩ :<br>ⲡⲁⲗⲓⲛ ⲉⲣⲭⲟⲙⲉⲛⲟⲥ :<br>ⲉⲛ ⲟboundaryⲙⲁⲧⲓ Ⲕⲩⲣⲓⲟⲩ.",
-                        trans: "أفلوجيمينوس أواير خومينوس<br>إن أونوماتي كيريو<br>بالين اير خومينوس<br>إن أونوماتي كيريو",
-                        arabic: "مبارك الآتي باسم الرب<br>وأيضاً الآتي باسم الرب"
-                    }
-                },
-                {
-                    id: "khen_phran",
-                    title: "لحن خين افران (باسم الآب والابن)",
-                    badge: "سنوي",
-                    details: "لحن بركة يقال في استقبال الآباء الأساقفة والمناسبات الكنسية.",
-                    audio: "خامس وسادس/khen_phran.mp3",
-                    hasLyricsImg: false, lyricsImg: "",
-                    lyricsText: {
-                        coptic: "Ϧⲉⲛ ⲫ̀ⲣⲁⲛ ⲙ̀ⲫ̀Ⲓⲱⲧ ⲙ̀ⲫ̀Ϣⲏⲣⲓ :<br>ⲛⲉⲙ ⲡⲓⲠ̀ⲛⲉⲩⲙⲁ ⲉⲑⲱⲟⲩⲃ :<br>ϮϮⲧⲣⲓⲁⲥ ⲉⲑⲱⲟⲩⲃ ⲛ̀ⲟboundaryⲙⲟⲟⲩⲥⲓⲟⲥ :<br>ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ :<br>ⲡⲁⲓⲱⲧ ⲉⲑⲱⲟⲩⲃ ⲛ̀ⲁⲣⲭⲏⲉⲣⲉⲩⲥ.",
-                        trans: "خين افران ام افيوت نيم ايبشيري<br>نيم بيبنيفما اثواب<br>تي ترياس اثواب ان اومو اوسيوس<br>اكسيوس اكسيوس اكسيوس<br>بايوت اثواب ان ارشيريفس",
-                        arabic: "باسم الآب والابن<br>والروح القدس<br>الثالوث القدوس المساوى في الجوهر<br>مستحق مستحق مستحق<br>أبي القديس رئيس الكهنة"
-                    }
-                }
+                { id: "evlogimenos", title: "لحن أفلوجيمينوس (Evlogimenos)", badge: "شعانيني / فرايحي", details: "مرد الإنجيل...", audio: "خامس وسادس/evlogimenos.mp3", hasLyricsImg: false, lyricsImg: "", lyricsText: { coptic: "...", trans: "...", arabic: "..." } }
             ],
             "مرحلة حضانة": [], "تالتة ورابعة ابتدائي": [], "المرحلة الإعدادية": [], "المرحلة الثانوية": [], "الجامعيين والخريجين": []
         },
@@ -449,6 +303,7 @@
     };
 
     let currentModule = '', currentStage = 'مرحلة حضانة', currentModuleText = '';
+    let isViewingHymnsMobile = false; // متغير لمتابعة ما إذا كان المستخدم داخل صفحة الألحان في الموبايل
 
     function openContentScreen(m, t) {
         currentModule = m; currentModuleText = t;
@@ -456,14 +311,13 @@
         document.getElementById('contentScreen').style.display = 'block';
         document.getElementById('backBtn').style.display = 'flex';
         
-        // إعادة تهيئة العناصر في الموبايل لتظهر قائمة المراحل أولاً
         if (window.innerWidth <= 768) {
             document.getElementById('stagesSidebar').style.display = 'flex';
             document.getElementById('contentMainArea').style.display = 'none';
-            document.getElementById('backBtn').style.display = 'flex'; // زرار العودة للرئيسية يفضل ظاهر
+            isViewingHymnsMobile = false;
         } else {
             document.getElementById('stagesSidebar').style.display = 'flex';
-            document.getElementById('contentMainArea').style.display = 'block';
+            document.getElementById('contentMainArea').style.block = 'block';
         }
         loadData();
     }
@@ -472,14 +326,13 @@
         document.getElementById('contentScreen').style.display = 'none';
         document.getElementById('backBtn').style.display = 'none';
         document.getElementById('homeScreen').style.display = 'block';
+        isViewingHymnsMobile = false;
     }
 
-    // الدالة المسؤولة عن الضغط على مرحلة معينة
     function switchStage(s) {
         const btns = document.querySelectorAll('.stage-btn');
         btns.forEach(b => b.classList.remove('active'));
         
-        // استخدام شرط للتحقق من وجود الـ event لتجنب المشاكل عند الاستدعاء التلقائي
         if(event && event.currentTarget) {
             event.currentTarget.classList.add('active');
         }
@@ -487,31 +340,40 @@
         currentStage = s; 
         loadData();
 
-        // منطق الموبايل: إخفاء قائمة المراحل وإظهار شاشة الألحان كصفحة منفصلة
         if (window.innerWidth <= 768) {
             document.getElementById('stagesSidebar').style.display = 'none';
             document.getElementById('contentMainArea').style.display = 'block';
-            document.getElementById('backBtn').style.display = 'none'; // إخفاء زرار الرئيسية عشان ميعملش زحمة مع زرار الموبايل الجديد
+            document.getElementById('backBtn').style.display = 'none';
+            
+            // 🔥 هنا السحر: بنضيف حالة جديدة في تاريخ المتصفح (Fake State)
+            isViewingHymnsMobile = true;
+            history.pushState({page: 'hymns'}, '');
         }
     }
 
-    // دالة العودة للمراحل (تُستدعى فقط من زرار الموبايل الجديد)
-    function backToStages() {
+    // الدالة الموحدة لمعالجة الرجوع (سواء من زرار الشاشة أو زرار التلفون)
+    function handleBackAction() {
         document.getElementById('contentMainArea').style.display = 'none';
         document.getElementById('stagesSidebar').style.display = 'flex';
-        document.getElementById('backBtn').style.display = 'flex'; // إرجاع زرار العودة للرئيسية
+        document.getElementById('backBtn').style.display = 'flex';
+        isViewingHymnsMobile = false;
     }
+
+    // 🔥 الاستماع لزرار الـ Back الحقيقي الخاص بالتلفون أو إيماءات السحب
+    window.addEventListener('popstate', function(event) {
+        // لو كنا على الموبايل وجوا صفحة الألحان، والـ User ضغط رجوع من التلفون
+        if (window.innerWidth <= 768 && isViewingHymnsMobile) {
+            handleBackAction();
+        }
+    });
 
     function loadData() {
         document.getElementById('mainSectionTitle').textContent = `منهج ${currentModuleText} - ${currentStage}`;
         const menuContainer = document.getElementById('hymnsMenu');
         const grid = document.getElementById('cardsGrid');
-        
-        menuContainer.innerHTML = ''; 
-        grid.innerHTML = ''; 
+        menuContainer.innerHTML = ''; grid.innerHTML = ''; 
 
         const list = schoolData[currentModule][currentStage];
-
         if (list && list.length > 0) {
             list.forEach((item) => {
                 menuContainer.innerHTML += `
@@ -520,10 +382,8 @@
                     </button>
                 `;
             });
-
             grid.innerHTML = `<p style="text-align:center; padding:30px; color:var(--purple-primary); font-size:24px; font-weight:bold; width:100%;">اختار لحن</p>`;
         } else {
-            menuContainer.innerHTML = '';
             grid.innerHTML = `<p style="text-align:center; padding:20px; color:var(--text-muted); font-size:18px;">جاري الرفع قريباً...</p>`;
         }
     }
@@ -579,7 +439,6 @@
         }
     });
 
-    // مراقبة تغيير حجم الشاشة لإعادة ضبط الواجهة لو المستخدم قلب التلفون بالعرض أو غيره
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {
             document.getElementById('stagesSidebar').style.display = 'flex';

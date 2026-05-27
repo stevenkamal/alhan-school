@@ -46,6 +46,10 @@
             margin: 0 auto;
         }
 
+        /* ==========================================================================
+           [1] واجهة اللاب توب والشاشات الكبيرة (Desktop/Laptop Styles - Default)
+           ========================================================================== */
+
         header {
             display: flex;
             align-items: center;
@@ -86,7 +90,14 @@
         }
         .welcome-screen h2 { color: var(--purple-primary); font-size: 30px; margin-bottom: 25px; font-weight: bold; }
 
-        .main-choices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 900px; margin: 0 auto; }
+        .main-choices-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+        
         .choice-card {
             background: rgba(255, 255, 255, 0.01); border: 2px solid var(--border-purple);
             padding: 40px 20px; border-radius: 15px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 15px;
@@ -95,14 +106,28 @@
         .choice-card span { font-size: 22px; font-weight: bold; }
         .choice-card:hover { border-color: var(--purple-primary); background: rgba(168, 85, 247, 0.1); }
 
+        /* زرار العودة للرئيسية */
         .back-btn {
             background: var(--bg-card); border: 1px solid var(--border-purple); color: var(--text-light);
             padding: 8px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; display: none; align-items: center; gap: 5px; font-size: 16px;
         }
         .back-btn:hover { border-color: var(--purple-primary); color: var(--purple-primary); }
 
+        /* زرار العودة للمراحل (مخفي تماماً في اللاب توب ويظهر فقط في الموبايل) */
+        .back-to-stages-btn {
+            display: none;
+            background: var(--bg-card); border: 1px solid var(--purple-primary); color: var(--purple-primary);
+            padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 15px; align-items: center; gap: 8px; font-size: 16px; font-weight: bold;
+            width: 100%; justify-content: center;
+        }
+
         .content-screen { display: none; }
-        .content-layout { display: grid; grid-template-columns: 1fr 3fr; gap: 30px; }
+        
+        .content-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 3fr; 
+            gap: 30px; 
+        }
 
         .stages-sidebar {
             background-color: var(--bg-card); border: 1px solid var(--border-purple);
@@ -115,6 +140,11 @@
             padding: 12px 15px; border-radius: 8px; cursor: pointer; text-align: right; font-size: 18px; font-weight: bold; display: flex; align-items: center; justify-content: space-between;
         }
         .stage-btn:hover, .stage-btn.active { background-color: rgba(168, 85, 247, 0.15); border-color: var(--purple-primary); color: var(--purple-primary); box-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
+
+        /* حاوية المحتوى (الأزرار والبطاقات) */
+        .content-main-area {
+            display: block;
+        }
 
         .section-title { color: var(--purple-primary); font-size: 24px; margin-bottom: 20px; border-right: 4px solid var(--purple-primary); padding-right: 10px; font-weight: bold; }
 
@@ -194,6 +224,10 @@
         .view-lyrics-btn:hover { background-color: rgba(168, 85, 247, 0.1); }
         footer { margin-top: 60px; text-align: center; padding: 20px; border-top: 1px solid var(--border-purple); color: var(--text-muted); font-size: 16px; }
 
+
+        /* ==========================================================================
+           [2] الميديا كويري للشاشات المتوسطة (تابلت واللاب توب الصغير)
+           ========================================================================== */
         @media (max-width: 992px) {
             .content-layout {
                 grid-template-columns: 1fr;
@@ -204,78 +238,87 @@
             }
         }
 
+
+        /* ==========================================================================
+           [3] واجهة التلفون والشاشات الصغيرة (Mobile Responsiveness < 768px)
+           ========================================================================== */
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 10px; 
             }
+            
             header {
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
                 padding: 15px;
             }
+            
             .header-right {
-                flex-direction: column;
+                flex-direction: column; 
                 gap: 10px;
             }
+            
             .header-left {
                 width: 100%;
-                justify-content: space-between;
+                justify-content: space-between; 
                 flex-row-reverse: row-reverse;
             }
-            .header-titles h1 {
-                font-size: 18px;
-            }
-            .header-titles p {
-                font-size: 14px;
-            }
-            .welcome-screen {
-                padding: 30px 15px;
-            }
-            .welcome-screen h2 {
-                font-size: 22px;
-            }
+            
+            .header-titles h1 { font-size: 18px; }
+            .header-titles p { font-size: 14px; }
+            .welcome-screen { padding: 30px 15px; }
+            .welcome-screen h2 { font-size: 22px; }
+            
             .main-choices-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            .choice-card {
-                padding: 25px 15px;
+            
+            .choice-card { padding: 25px 15px; }
+            .choice-card span { font-size: 18px; }
+            
+            /* إعدادات التحكم في الفصل بين شاشة المراحل والألحان في الموبايل */
+            .content-main-area {
+                display: none; /* يتم إخفاء منطقة الألحان افتراضياً في البداية حتى يختار المستخدم مرحلة */
             }
-            .choice-card span {
-                font-size: 18px;
+
+            /* إظهار زرار العودة للمراحل داخل منطقة الملحان بالموبايل */
+            .back-to-stages-btn {
+                display: flex; 
             }
-            .hymns-menu-container {
-                justify-content: center;
-            }
+
+            .hymns-menu-container { justify-content: center; }
+            
             .hymn-menu-tab {
                 font-size: 15px;
                 padding: 8px 14px;
-                width: 100%;
+                width: 100%; 
                 justify-content: center;
             }
+            
             .lyrics-container {
                 grid-template-columns: 1fr;
                 border-radius: 6px;
             }
+            
             .lyrics-col:not(:last-child) {
-                border-left: none;
-                border-bottom: 1px solid var(--border-purple);
+                border-left: none; 
+                border-bottom: 1px solid var(--border-purple); 
             }
+            
             .lyrics-col {
-                font-size: 17px;
+                font-size: 17px; 
                 padding: 12px 5px;
             }
+            
             .lyrics-col h4 {
                 font-size: 18px;
                 margin-bottom: 10px;
             }
-            .hymn-card {
-                padding: 15px;
-            }
-            .hymn-title {
-                font-size: 18px;
-            }
+            
+            .hymn-card { padding: 15px; }
+            .hymn-title { font-size: 18px; }
         }
     </style>
 </head>
@@ -309,7 +352,7 @@
 
     <div id="contentScreen" class="content-screen">
         <div class="content-layout">
-            <div class="stages-sidebar">
+            <div class="stages-sidebar" id="stagesSidebar">
                 <h3>المراحل الدراسية</h3>
                 <button class="stage-btn active" onclick="switchStage('مرحلة حضانة')">مرحلة حضانة <i class="fa-solid fa-chevron-left"></i></button>
                 <button class="stage-btn" onclick="switchStage('أولى وتانية ابتدائي')">أولى وتانية ابتدائي <i class="fa-solid fa-chevron-left"></i></button>
@@ -319,7 +362,10 @@
                 <button class="stage-btn" onclick="switchStage('المرحلة الثانوية')">المرحلة الثانوية <i class="fa-solid fa-chevron-left"></i></button>
                 <button class="stage-btn" onclick="switchStage('الجامعيين والخريجين')">الجامعيين والخريجين <i class="fa-solid fa-chevron-left"></i></button>
             </div>
-            <div>
+            
+            <div class="content-main-area" id="contentMainArea">
+                <button class="back-to-stages-btn" onclick="backToStages()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة المراحل</button>
+                
                 <div class="section-title"><span id="mainSectionTitle">المنهج</span></div>
                 <div class="hymns-menu-container" id="hymnsMenu"></div>
                 <div class="hymns-grid" id="cardsGrid"></div>
@@ -349,7 +395,7 @@
                     audio: "أولى وتانية ابتدائي/ton_sina.mp3", 
                     hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/ton_sina_lyrics.jpg",
                     lyricsText: {
-                        coptic: "Ⲧⲟⲛ ⲥⲩⲛⲁⲛⲁⲣⲭⲟⲛ ⲗⲟⲅⲟⲛ ⲡⲁⲧⲣⲓ ⲕⲉ ⲡ̀ⲛⲉⲩⲙⲁⲧⲓ :<br>ⲧⲟⲛ ⲉⲕⲡⲁⲣⲑⲉⲛⲟⲩ ⲧⲉⲕⲑⲉⲛⲧⲁ ⲓⲥ ⲥⲱⲧⲏⲣⲓⲁⲛ ⲏ̀ⲙⲱⲛ :<br>ⲁⲛⲩⲙⲛⲏⲥⲱⲙⲉⲛ ⲡⲓⲥⲧⲓ ⲕⲉ ⲡ̀ⲣⲟⲥ ⲕⲩⲛⲏⲥⲱⲙⲉⲛ :<br>ⲟⲧⲓ ⲏⲩⲇⲱⲕⲉ ⲥⲉ ⲥⲁⲣⲕⲓ:<br>ⲁⲛⲉⲗⲑⲓⲛ ⲉⲛⲧⲱ ⲥⲧⲁⲩⲣⲱ: ⲕⲉ ⲑⲁⲛⲁⲧⲟⲛ ⲩ̀ⲡⲟⲙⲓⲛⲉ :<br>ⲕⲉ ⲉ̀ⲅⲓⲣⲉ ⲧⲟⲩⲥ ⲧⲉⲑⲛⲉⲱ̀ⲟ:<br>ⲧⲁⲥ ⲉⲛⲧⲏ ⲉⲛⲇⲟⲝⲟ<br>ⲁⲛⲁⲥⲧⲁⲥⲓ ⲩⲧⲟⲩ",
+                        coptic: "Ⲧⲟⲛ ⲥⲩⲛⲁⲛⲣⲭⲟⲛ ⲗⲟⲅⲟⲛ ⲡⲁⲧⲣⲓ ⲕⲉ ⲡ̀ⲛⲉⲩⲙⲁⲧⲓ :<br>ⲧⲟⲛ ⲉⲕⲡⲁⲣⲑⲉⲛⲟⲩ ⲧⲉⲕⲑⲉⲛⲧⲁ ⲓⲥ ⲥⲱⲧⲏⲣⲓⲁⲛ ⲏ̀ⲙⲱⲛ :<br>ⲁⲛⲩⲙⲛⲏⲥⲱⲙⲉⲛ ⲡⲓⲥⲧⲓ ⲕⲉ ⲡ̀ⲣⲟⲥ ⲕⲩⲛⲏⲥⲱⲙⲉⲛ :<br>ⲟⲧⲓ ⲏⲩⲇⲱⲕⲉ ⲥⲉ ⲥⲁⲣⲕⲓ:<br>ⲁⲛⲉⲗⲑⲓⲛ ⲉⲛⲧⲱ ⲥⲧⲁⲩⲣⲱ: ⲕⲉ ⲑⲁⲛⲁⲧⲟⲛ ⲩ̀ⲡⲟⲙⲓⲛⲉ :<br>ⲕⲉ ⲉ̀ⲅⲓⲣⲉ ⲧⲟⲩⲥ ⲧⲉⲑⲛⲉⲱ̀ⲟ:<br>ⲧⲁⲥ ⲉⲛⲧⲏ ⲉⲛⲇⲟⲝⲟ<br>ⲁⲛⲁⲥⲧⲁⲥⲓ ⲩⲧⲟⲩ",
                         trans: "طون سينا نارخون لوغون باتري كى إبنيفماتي:<br>تون إيكبارثينو تيك ثيندا يس سوتيريان إيمون:<br>أنيم ني سومين بيستي كى إبروس كى<br>نيسومين: أوتي إيفذوكي سى ساركي:<br>إنتو إستافرو كى ثاناتون إيبو ميني:<br>كى إيجيري توس نيثني أوأو:<br>طاس إنتي إندوكصو<br>أناستاسي أفتو",
                         arabic: "نسبح نحن المؤمنين ونمجد للكلمة المساوي<br>للآب والروح: في الأزلية وعدم الإبتداء،<br>المولود من العذراء لأجل خلاصنا: لأنه سر و ارتضى<br>بالجسد أن يعلو على الصليب:<br>يحتمل الموت و يُنهض الموتى<br>بقيامته المجيدة"
                     }
@@ -362,7 +408,7 @@
                     audio: "أولى وتانية ابتدائي/لحن توليثوس.mp3", 
                     hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/Tolitho_Hazzat.jpg",
                     lyricsText: {
-                        coptic: "Ⲧⲟⲛ ⲗⲓⲑⲟⲛ ⲥⲫⲣⲁⲅⲓⲥⲑⲉⲛⲧⲁ :<br>ⲩⲡⲟ ⲧⲱⲛ Ⲓⲟⲩⲇⲁⲓⲱⲛ :<br>ⲕⲉ ⲥⲧⲣⲁⲧⲓⲱⲧⲱⲛ ⲫⲩⲗⲁⲥⲥⲟⲛⲧⲱⲛ :<br>ⲧⲟ ⲁⲭⲣⲁⲛⲧⲟⲛ ⲥⲟⲩ ⲥⲱⲙⲁ :<br>ⲁⲛⲉⲥⲧⲏⲥ ⲧⲣⲓⲏⲙⲉⲣⲟⲥ ⲥⲱⲧⲏⲣ :<br>ⲇⲱⲣⲟⲩⲙⲉⲛⲟⲥ ⲧⲱ ⲕⲟⲥⲙⲱ ⲧⲏⲛ ⲝⲱⲏⲛ :<br>ⲇⲓⲁ ⲧⲟⲩⲧⲟ ⲉ ⲇⲩⲛⲁⲙⲓⲥ ⲧⲱⲛ ⲟⲩⲣⲁⲛⲱⲛ :<br>ⲉⲃⲟⲱⲛ ⲥⲟⲓ ⲝⲱⲟⲇⲟⲧⲁ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲁⲛⲁⲥⲧⲁⲥⲓ ⲥⲟⲩ Ⲭⲣⲓⲥⲧⲉ :<br>ⲇⲟⲝα ⲧⲏ ⲃⲁⲥⲓⲗⲓⲁ ⲥⲟⲩ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲓⲕⲟⲛⲟⲙⲓⲁ ⲥⲟⲩ ⲙⲟⲛⲉ ⲫⲓⲗⲁⲛⲑⲣⲱⲡⲉ",
+                        coptic: "Ⲧⲟⲛ ⲗⲓⲑⲟⲛ ⲥⲫⲣⲁⲅⲓⲥⲑⲉⲛⲧⲁ :<br>ⲩⲡⲟ ⲧⲱⲛ Ⲓⲟⲩⲇⲁⲓⲱⲛ :<br>ⲕⲉ ⲥⲧⲣⲁⲧⲓⲧⲱⲛ ⲫⲩⲗⲁⲥⲥⲟⲛⲧⲱⲛ :<br>ⲧⲟ ⲁⲭⲣⲁⲛⲧⲟⲛ ⲥⲟⲩ ⲥⲱⲙⲁ :<br>ⲁⲛⲉⲥⲧⲏⲥ ⲧⲣⲓⲏⲙⲉⲣⲟⲥ ⲥⲱⲧⲏⲣ :<br>ⲇⲱⲣⲟⲩⲙⲉⲛⲟⲥ ⲧⲱ ⲕⲟⲥⲙⲱ ⲧⲏⲛ ⲝⲱⲏⲛ :<br>ⲇⲓⲁ ⲧⲟⲩⲧⲟ ⲉ ⲇⲩⲛⲁⲙⲓⲥ ⲧⲱⲛ ⲟⲩⲣⲁⲛⲱⲛ :<br>ⲉⲃⲟⲱⲛ ⲥⲟⲓ ⲝⲱⲟⲇⲟⲧⲁ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲁⲛⲁⲥⲧⲁⲥⲓ ⲥⲟⲩ Ⲭⲣⲓⲥⲧⲉ :<br>ⲇⲟⲝα ⲧⲏ ⲃⲁⲥⲓⲗⲓⲁ ⲥⲟⲩ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲓⲕⲟⲛⲟⲙⲓⲁ ⲥⲟⲩ ⲙⲟⲛⲉ ⲫⲓⲗⲁⲛⲑⲣⲱⲡⲉ",
                         trans: "تو ليثوس فراجيس ثين<br>توس إيبوتون يوذيئون كى<br>إإستراتيوتون فيلاس سون<br>تون تو أكرانتون سوسوما<br>آنيستيس تري إيميروس سوتير<br>ذورومينوس تو كوز موتين ذوئين<br>ذياتوتو إيذيناميس تون أورانون<br>إفؤون سى ذو أوذوتا<br>ذوكساتى آنساستى سو إخرستى<br>ذوكساتى فاسيليا سو<br>ذوكساتى إيكونوميا سومونى فيلان إثروبى",
                         arabic: "إن الحجر لما ختم من اليهود<br>وجسدك الطاهر حفظ من الجند،<br>قمت في اليوم الثالث أيها المخلص<br>مانحًا العالم الحياة<br>لأجل هذا قوات السموات هتفوا<br>إليك يا واهب الحياة<br>المجد لقيامتك ايها المسيح<br>المجد لملكك<br>المجد لتدبيرك يا محب البشر"
                     }
@@ -409,6 +455,16 @@
         document.getElementById('homeScreen').style.display = 'none';
         document.getElementById('contentScreen').style.display = 'block';
         document.getElementById('backBtn').style.display = 'flex';
+        
+        // إعادة تهيئة العناصر في الموبايل لتظهر قائمة المراحل أولاً
+        if (window.innerWidth <= 768) {
+            document.getElementById('stagesSidebar').style.display = 'flex';
+            document.getElementById('contentMainArea').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'flex'; // زرار العودة للرئيسية يفضل ظاهر
+        } else {
+            document.getElementById('stagesSidebar').style.display = 'flex';
+            document.getElementById('contentMainArea').style.display = 'block';
+        }
         loadData();
     }
 
@@ -418,11 +474,32 @@
         document.getElementById('homeScreen').style.display = 'block';
     }
 
+    // الدالة المسؤولة عن الضغط على مرحلة معينة
     function switchStage(s) {
         const btns = document.querySelectorAll('.stage-btn');
         btns.forEach(b => b.classList.remove('active'));
-        event.currentTarget.classList.add('active');
-        currentStage = s; loadData();
+        
+        // استخدام شرط للتحقق من وجود الـ event لتجنب المشاكل عند الاستدعاء التلقائي
+        if(event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+        }
+        
+        currentStage = s; 
+        loadData();
+
+        // منطق الموبايل: إخفاء قائمة المراحل وإظهار شاشة الألحان كصفحة منفصلة
+        if (window.innerWidth <= 768) {
+            document.getElementById('stagesSidebar').style.display = 'none';
+            document.getElementById('contentMainArea').style.display = 'block';
+            document.getElementById('backBtn').style.display = 'none'; // إخفاء زرار الرئيسية عشان ميعملش زحمة مع زرار الموبايل الجديد
+        }
+    }
+
+    // دالة العودة للمراحل (تُستدعى فقط من زرار الموبايل الجديد)
+    function backToStages() {
+        document.getElementById('contentMainArea').style.display = 'none';
+        document.getElementById('stagesSidebar').style.display = 'flex';
+        document.getElementById('backBtn').style.display = 'flex'; // إرجاع زرار العودة للرئيسية
     }
 
     function loadData() {
@@ -499,6 +576,17 @@
             document.body.setAttribute('data-theme', 'light');
             document.getElementById('modeText').textContent = 'الوضع الداكن';
             document.getElementById('modeIcon').className = 'fa-solid fa-moon';
+        }
+    });
+
+    // مراقبة تغيير حجم الشاشة لإعادة ضبط الواجهة لو المستخدم قلب التلفون بالعرض أو غيره
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            document.getElementById('stagesSidebar').style.display = 'flex';
+            document.getElementById('contentMainArea').style.display = 'block';
+            if (document.getElementById('contentScreen').style.display === 'block') {
+                document.getElementById('backBtn').style.display = 'flex';
+            }
         }
     });
 </script>

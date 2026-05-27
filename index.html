@@ -194,12 +194,9 @@
         .view-lyrics-btn:hover { background-color: rgba(168, 85, 247, 0.1); }
         footer { margin-top: 60px; text-align: center; padding: 20px; border-top: 1px solid var(--border-purple); color: var(--text-muted); font-size: 16px; }
 
-        /* ========================================================
-           شفرة التعديل للموبايل والشاشات الصغيرة (Media Queries)
-        ======================================================== */
         @media (max-width: 992px) {
             .content-layout {
-                grid-template-columns: 1fr; /* جعل القائمة الجانبية والمحتوى فوق بعض بدل جنب بعض */
+                grid-template-columns: 1fr;
                 gap: 20px;
             }
             .stages-sidebar {
@@ -212,7 +209,7 @@
                 padding: 10px;
             }
             header {
-                flex-direction: column; /* ترتيب الهيدر فوق بعضه */
+                flex-direction: column;
                 gap: 15px;
                 text-align: center;
                 padding: 15px;
@@ -239,7 +236,7 @@
                 font-size: 22px;
             }
             .main-choices-grid {
-                grid-template-columns: 1fr; /* كروت الاختيار تيجى تحت بعض */
+                grid-template-columns: 1fr;
                 gap: 15px;
             }
             .choice-card {
@@ -254,16 +251,16 @@
             .hymn-menu-tab {
                 font-size: 15px;
                 padding: 8px 14px;
-                width: 100%; /* تفرش بعرض الشاشة في الموبايل لسهولة الضغط */
+                width: 100%;
                 justify-content: center;
             }
             .lyrics-container {
-                grid-template-columns: 1fr; /* تقسيم كلمات اللحن يجي تحت بعض بدل 3 أعمدة مضغوطة */
+                grid-template-columns: 1fr;
                 border-radius: 6px;
             }
             .lyrics-col:not(:last-child) {
                 border-left: none;
-                border-bottom: 1px solid var(--border-purple); /* فصل الخلايا بخط أفقي */
+                border-bottom: 1px solid var(--border-purple);
             }
             .lyrics-col {
                 font-size: 17px;
@@ -302,7 +299,7 @@
     <button class="back-btn" id="backBtn" onclick="goBackToHome()"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</button>
 
     <div id="homeScreen" class="welcome-screen">
-        <h2>المنصة Baseline التعليمية للمدرسة</h2>
+        <h2>المنصة التعليمية للمدرسة</h2>
         <div class="main-choices-grid">
             <div class="choice-card" onclick="openContentScreen('alhan', 'الألحان الكنسية')"><i class="fa-solid fa-cross"></i><span>ألحان الكنيسة</span></div>
             <div class="choice-card" onclick="openContentScreen('taqs', 'الطقس الكنسي')"><i class="fa-solid fa-book-open"></i><span>الطقس الكنسي</span></div>

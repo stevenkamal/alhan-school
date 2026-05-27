@@ -241,7 +241,7 @@
         </div>
     </header>
 
-    <button class="back-btn" id="backBtn" onclick="goBackToHome()"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</button>
+    <button class="back-btn" id="backBtn" onclick="history.back()"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</button>
 
     <div id="homeScreen" class="welcome-screen">
         <h2>المنصة التعليمية للمدرسة</h2>
@@ -266,7 +266,7 @@
             </div>
             
             <div class="content-main-area" id="contentMainArea">
-                <button class="back-to-stages-btn" onclick="handleBackAction()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة المراحل</button>
+                <button class="back-to-stages-btn" onclick="history.back()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة المراحل</button>
                 
                 <div class="section-title"><span id="mainSectionTitle">المنهج</span></div>
                 <div class="hymns-menu-container" id="hymnsMenu"></div>
@@ -286,12 +286,11 @@
 </footer>
 
 <script>
-    // [نفس بيانات المصفوفة الخاصة بك بدون تغيير للاختصار]
     const schoolData = {
         alhan: {
             "أولى وتانية ابتدائي": [
                 { id: "ton_sina", title: "لحن طون سينا (Tòn Sina)", badge: "فرايحي", details: "قطعة رومي يونانية لدورة عيد القيامة والخماسين المقدسة.", audio: "أولى وتانية ابتدائي/ton_sina.mp3", hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/ton_sina_lyrics.jpg", lyricsText: { coptic: "...", trans: "...", arabic: "..." } },
-                { id: "tolitho", title: "لحن طوليثو (Τὸν λίθون)", badge: "فرايحي", details: "ذكصولوجية القيامة...", audio: "أولى وتانية ابتدائي/لحن توليثوس.mp3", hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/Tolitho_Hazzat.jpg", lyricsText: { coptic: "...", trans: "...", arabic: "..." } }
+                { id: "tolitho", title: "لحن طوليثو (Τὸν λίθον)", badge: "فرايحي", details: "ذكصولوجية القيامة...", audio: "أولى وتانية ابتدائي/لحن توليثوس.mp3", hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/Tolitho_Hazzat.jpg", lyricsText: { coptic: "...", trans: "...", arabic: "..." } }
             ],
             "الخامس والسادس الابتدائي": [
                 { id: "evlogimenos", title: "لحن أفلوجيمينوس (Evlogimenos)", badge: "شعانيني / فرايحي", details: "مرد الإنجيل...", audio: "خامس وسادس/evlogimenos.mp3", hasLyricsImg: false, lyricsImg: "", lyricsText: { coptic: "...", trans: "...", arabic: "..." } }
@@ -303,37 +302,80 @@
     };
 
     let currentModule = '', currentStage = 'مرحلة حضانة', currentModuleText = '';
-    let isViewingHymnsMobile = false; // متغير لمتابعة ما إذا كان المستخدم داخل صفحة الألحان في الموبايل
+
+    // دالة تهيئة واستبدال الحالة الأولى للموقع لتكون هي شاشة الـ Home الأساسية
+    window.addEventListener('load', () => {
+        history.replaceState({ screen: 'home' }, '');
+    });
+
+    // دالة التنقل الموحدة التي تقوم بحفظ خطوة فعلية في تاريخ المتصفح (History)
+    function navigateTo(stateData) {
+        history.pushState(stateData, '');
+        renderScreen(stateData);
+    }
+
+    // الـ Renderer المسؤول عن إظهار الشاشة بناءً على الحالة الحالية للـ History
+    function renderScreen(state) {
+        if (!state || state.screen === 'home') {
+            // إظهار الشاشة الرئيسية بالكامل
+            document.getElementById('homeScreen').style.display = 'block';
+            document.getElementById('contentScreen').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'none';
+        } 
+        else if (state.screen === 'stages') {
+            // إظهار شاشة المراحل
+            document.getElementById('homeScreen').style.display = 'none';
+            document.getElementById('contentScreen').style.display = 'block';
+            
+            if (window.innerWidth <= 768) {
+                document.getElementById('stagesSidebar').style.display = 'flex';
+                document.getElementById('contentMainArea').style.display = 'none';
+                document.getElementById('backBtn').style.display = 'flex'; // يظهر في الموبايل ليرجع للرئيسية
+            } else {
+                document.getElementById('stagesSidebar').style.display = 'flex';
+                document.getElementById('contentMainArea').style.display = 'block';
+                document.getElementById('backBtn').style.display = 'flex';
+            }
+        } 
+        else if (state.screen === 'hymns') {
+            // إظهار شاشة الألحان والمناهج للمرحلة المحددة
+            document.getElementById('homeScreen').style.display = 'none';
+            document.getElementById('contentScreen').style.display = 'block';
+            
+            if (window.innerWidth <= 768) {
+                document.getElementById('stagesSidebar').style.display = 'none';
+                document.getElementById('contentMainArea').style.display = 'block';
+                document.getElementById('backBtn').style.display = 'none'; // يختفي لمنع الزحمة مع زرار العودة للمراحل
+            } else {
+                document.getElementById('stagesSidebar').style.display = 'flex';
+                document.getElementById('contentMainArea').style.display = 'block';
+                document.getElementById('backBtn').style.display = 'flex';
+            }
+        }
+    }
+
+    // الاستماع لزرار الـ Back الحقيقي الخاص بالتلفون والإيماءات في أي وقت
+    window.addEventListener('popstate', (event) => {
+        if (event.state) {
+            renderScreen(event.state);
+        } else {
+            // حالة افتراضية للرجوع لأول السايت
+            renderScreen({ screen: 'home' });
+        }
+    });
 
     function openContentScreen(m, t) {
         currentModule = m; currentModuleText = t;
-        document.getElementById('homeScreen').style.display = 'none';
-        document.getElementById('contentScreen').style.display = 'block';
-        document.getElementById('backBtn').style.display = 'flex';
-        
-        if (window.innerWidth <= 768) {
-            document.getElementById('stagesSidebar').style.display = 'flex';
-            document.getElementById('contentMainArea').style.display = 'none';
-            isViewingHymnsMobile = false;
-        } else {
-            document.getElementById('stagesSidebar').style.display = 'flex';
-            document.getElementById('contentMainArea').style.block = 'block';
-        }
         loadData();
-    }
-
-    function goBackToHome() {
-        document.getElementById('contentScreen').style.display = 'none';
-        document.getElementById('backBtn').style.display = 'none';
-        document.getElementById('homeScreen').style.display = 'block';
-        isViewingHymnsMobile = false;
+        // الحفظ في التاريخ والذهاب لشاشة المراحل
+        navigateTo({ screen: 'stages', module: m, moduleText: t });
     }
 
     function switchStage(s) {
         const btns = document.querySelectorAll('.stage-btn');
         btns.forEach(b => b.classList.remove('active'));
         
-        if(event && event.currentTarget) {
+        if (event && event.currentTarget) {
             event.currentTarget.classList.add('active');
         }
         
@@ -341,31 +383,10 @@
         loadData();
 
         if (window.innerWidth <= 768) {
-            document.getElementById('stagesSidebar').style.display = 'none';
-            document.getElementById('contentMainArea').style.display = 'block';
-            document.getElementById('backBtn').style.display = 'none';
-            
-            // 🔥 هنا السحر: بنضيف حالة جديدة في تاريخ المتصفح (Fake State)
-            isViewingHymnsMobile = true;
-            history.pushState({page: 'hymns'}, '');
+            // الحفظ في التاريخ والذهاب لشاشة الألحان المنفصلة على الموبايل
+            navigateTo({ screen: 'hymns', module: currentModule, stage: s });
         }
     }
-
-    // الدالة الموحدة لمعالجة الرجوع (سواء من زرار الشاشة أو زرار التلفون)
-    function handleBackAction() {
-        document.getElementById('contentMainArea').style.display = 'none';
-        document.getElementById('stagesSidebar').style.display = 'flex';
-        document.getElementById('backBtn').style.display = 'flex';
-        isViewingHymnsMobile = false;
-    }
-
-    // 🔥 الاستماع لزرار الـ Back الحقيقي الخاص بالتلفون أو إيماءات السحب
-    window.addEventListener('popstate', function(event) {
-        // لو كنا على الموبايل وجوا صفحة الألحان، والـ User ضغط رجوع من التلفون
-        if (window.innerWidth <= 768 && isViewingHymnsMobile) {
-            handleBackAction();
-        }
-    });
 
     function loadData() {
         document.getElementById('mainSectionTitle').textContent = `منهج ${currentModuleText} - ${currentStage}`;

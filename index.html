@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدرسة الأرشيدياكون hبيب جرجس بشبرا الخيمة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #07111e;
+            --bg-card: #0d1f38;
+            --header-bg: #142a4a;
+            --purple-primary: #a855f7;
+            --text-light: #ffffff;
+            --text-muted: #8fa0b5;
+            --border-purple: rgba(168, 85, 247, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-dark: #f0f4f8;
+            --bg-card: #ffffff;
+            --header-bg: #e2e8f0;
+            --purple-primary: #7c3aed;
+            --text-light: #07111e;
+            --text-muted: #64748b;
+            --border-purple: rgba(124, 58, 237, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, 'Simplified Arabic', Georgia, serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--header-bg);
+            border: 1px solid var(--border-purple);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .header-right { display: flex; align-items: center; gap: 15px; }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+
+        .logo-circle {
+            width: 85px; height: 85px; border-radius: 50%;
+            border: 2px solid var(--purple-primary); background-color: #07111e;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+        }
+
+        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .header-titles h1 { font-size: 24px; color: var(--text-light); margin-bottom: 5px; font-weight: bold; }
+        .header-titles p { font-size: 16px; color: var(--text-muted); }
+
+        .theme-toggle {
+            background: var(--bg-card); border: 1px solid var(--border-purple); color: var(--purple-primary);
+            padding: 10px 16px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: bold;
+            box-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
+        }
+
+        .welcome-screen {
+            text-align: center; padding: 60px 20px; background-color: var(--bg-card);
+            border: 1px solid var(--border-purple); border-radius: 15px; margin-top: 20px;
+        }
+        .welcome-screen h2 { color: var(--purple-primary); font-size: 30px; margin-bottom: 15px; font-weight: bold; }
+
+        .main-choices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 900px; margin: 0 auto; }
+        .choice-card {
+            background: rgba(255, 255, 255, 0.01); border: 2px solid var(--border-purple);
+            padding: 40px 20px; border-radius: 15px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 15px;
+        }
+        .choice-card span { font-size: 22px; font-weight: bold; }
+        .choice-card:hover { border-color: var(--purple-primary); background: rgba(168, 85, 247, 0.1); }
+
+        .back-btn {
+            background: var(--bg-card); border: 1px solid var(--border-purple); color: var(--text-light);
+            padding: 8px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; display: none; align-items: center; gap: 5px; font-size: 16px;
+        }
+        .back-btn:hover { border-color: var(--purple-primary); color: var(--purple-primary); }
+
+        .content-screen { display: none; }
+        .content-layout { display: grid; grid-template-columns: 1fr 3fr; gap: 30px; }
+
+        .stages-sidebar {
+            background-color: var(--bg-card); border: 1px solid var(--border-purple);
+            border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; height: fit-content;
+        }
+        .stages-sidebar h3 { font-size: 20px; color: var(--text-light); text-align: center; margin-bottom: 10px; font-weight: bold;}
+
+        .stage-btn {
+            background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-purple); color: var(--text-light);
+            padding: 12px 15px; border-radius: 8px; cursor: pointer; text-align: right; font-size: 18px; font-weight: bold; display: flex; align-items: center; justify-content: space-between;
+        }
+        .stage-btn:hover, .stage-btn.active { background-color: rgba(168, 85, 247, 0.15); border-color: var(--purple-primary); color: var(--purple-primary); box-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
+
+        .section-title { color: var(--purple-primary); font-size: 24px; margin-bottom: 20px; border-right: 4px solid var(--purple-primary); padding-right: 10px; font-weight: bold; }
+
+        .hymns-menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-purple);
+            padding-bottom: 15px;
+        }
+
+        .hymn-menu-tab {
+            background-color: var(--bg-card); border: 1px solid var(--border-purple); color: var(--text-light);
+            padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 18px; font-weight: bold;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .hymn-menu-tab:hover, .hymn-menu-tab.active {
+            border-color: var(--purple-primary); background-color: rgba(168, 85, 247, 0.15); color: var(--purple-primary);
+        }
+
+        .hymns-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .hymn-card { background-color: var(--bg-card); border: 1px solid var(--border-purple); border-radius: 12px; padding: 25px; position: relative; }
+        .hymn-title { font-size: 22px; color: var(--purple-primary); font-weight: bold; }
+        .hymn-details { font-size: 16px; color: var(--text-muted); margin-bottom: 15px; }
+
+        .audio-wrapper { background-color: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 10px; margin: 15px 0; }
+        audio { width: 100%; height: 35px; }
+
+        .lyrics-container {
+            margin-top: 25px; 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 0; 
+            border: 1px solid var(--border-purple); 
+            border-radius: 8px; 
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+        
+        .lyrics-col { 
+            color: #ffffff !important; 
+            font-size: 19px; 
+            line-height: 1.8; 
+            text-align: center; 
+            padding: 15px 10px;
+        }
+
+        .lyrics-col:not(:last-child) {
+            border-left: 1px solid var(--border-purple);
+        }
+
+        .lyrics-col h4 { 
+            color: var(--purple-primary); 
+            margin-bottom: 15px; 
+            font-size: 20px; 
+            border-bottom: 1px solid var(--border-purple); 
+            padding-bottom: 8px; 
+            font-weight: bold; 
+        }
+
+        .lyrics-col.coptic { 
+            font-family: 'Times New Roman', Times, serif; 
+            letter-spacing: 0.5px; 
+            font-weight: bold; 
+        }
+
+        .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border: 2px solid var(--purple-primary); }
+        .close-modal { position: absolute; top: 15px; left: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+
+        .view-lyrics-btn {
+            background: none; border: 1px solid var(--purple-primary); color: var(--purple-primary);
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold; font-size: 16px;
+        }
+        .view-lyrics-btn:hover { background-color: rgba(168, 85, 247, 0.1); }
+        footer { margin-top: 60px; text-align: center; padding: 20px; border-top: 1px solid var(--border-purple); color: var(--text-muted); font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <header>
+        <div class="header-right">
+            <div class="logo-circle"><img src="image_4681e5.jpg"></div>
+            <div class="header-titles">
+                <h1>كنيسة البابا كيرلس السادس والأرشيدياكون حبيب جرجس بشبرا الخيمة</h1>
+                <p>مدرسة الألحان والطقوس واللغة القبطية</p>
+            </div>
+        </div>
+        <div class="header-left">
+            <div class="logo-circle"><img src="image_467ef8.jpg"></div>
+            <button class="theme-toggle" id="modeBtn"><i class="fa-solid fa-sun" id="modeIcon"></i> <span id="modeText">الوضع المضيء</span></button>
+        </div>
+    </header>
+
+    <button class="back-btn" id="backBtn" onclick="goBackToHome()"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</button>
+
+    <div id="homeScreen" class="welcome-screen">
+        <h2>المنصة التعليمية للمدرسة</h2>
+        <div class="main-choices-grid">
+            <div class="choice-card" onclick="openContentScreen('alhan', 'الألحان الكنسية')"><i class="fa-solid fa-cross"></i><span>ألحان الكنيسة</span></div>
+            <div class="choice-card" onclick="openContentScreen('taqs', 'الطقس الكنسي')"><i class="fa-solid fa-book-open"></i><span>الطقس الكنسي</span></div>
+            <div class="choice-card" onclick="openContentScreen('qebti', 'اللغة القبطية')"><i class="fa-solid fa-gopuram"></i><span>اللغة القبطية</span></div>
+        </div>
+    </div>
+
+    <div id="contentScreen" class="content-screen">
+        <div class="content-layout">
+            <div class="stages-sidebar">
+                <h3>المراحل الدراسية</h3>
+                <button class="stage-btn active" onclick="switchStage('مرحلة حضانة')">مرحلة حضانة <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('أولى وتانية ابتدائي')">أولى وتانية ابتدائي <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('تالتة ورابعة ابتدائي')">تالتة ورابعة ابتدائي <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('الخامس والسادس الابتدائي')">الخامس والسادس الابتدائي <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('المرحلة الإعدادية')">المرحلة الإعدادية <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('المرحلة الثانوية')">المرحلة الثانوية <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('الجامعيين والخريجين')">الجامعيين والخريجين <i class="fa-solid fa-chevron-left"></i></button>
+            </div>
+            <div>
+                <div class="section-title"><span id="mainSectionTitle">المنهج</span></div>
+                <div class="hymns-menu-container" id="hymnsMenu"></div>
+                <div class="hymns-grid" id="cardsGrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="lyricsModal" class="modal">
+    <span class="close-modal" onclick="closeLyrics()">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+    const schoolData = {
+        alhan: {
+            "أولى وتانية ابتدائي": [
+                { 
+                    id: "ton_sina",
+                    title: "لحن طون سينا (Tòn Sina)", 
+                    badge: "فرايحي", 
+                    details: "قطعة رومي يونانية لدورة عيد القيامة والخماسين المقدسة.", 
+                    audio: "أولى وتانية ابتدائي/ton_sina.mp3", 
+                    hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/ton_sina_lyrics.jpg",
+                    lyricsText: {
+                        coptic: "Ⲧⲟⲛ ⲥⲩⲛⲁⲛⲁⲣⲭⲟⲛ ⲗⲟⲅⲟⲛ ⲡⲁⲧⲣⲓ ⲕⲉ ⲡ̀ⲛⲉⲩⲙⲁⲧⲓ :<br>ⲧⲟⲛ ⲉⲕⲡⲁⲣⲑⲉⲛⲟⲩ ⲧⲉⲕⲑⲉⲛⲧⲁ ⲓⲥ ⲥⲱⲧⲏⲣⲓⲁⲛ ⲏ̀ⲙⲱⲛ :<br>ⲁⲛⲩⲙⲛⲏⲥⲱⲙⲉⲛ ⲡⲓⲥⲧⲓ ⲕⲉ ⲡ̀ⲣⲟⲥ ⲕⲩⲛⲏⲥⲱⲙⲉⲛ :<br>ⲟⲧⲓ ⲏⲩⲇⲱⲕⲉ ⲥⲉ ⲥⲁⲣⲕⲓ:<br>ⲁⲛⲉⲗⲑⲓⲛ ⲉⲛⲧⲱ ⲥⲧⲁⲩⲣⲱ: ⲕⲉ ⲑⲁⲛⲁⲧⲟⲛ ⲩ̀ⲡⲟⲙⲓⲛⲉ :<br>ⲕⲉ ⲉ̀ⲅⲓⲣⲉ ⲧⲟⲩⲥ ⲧⲉⲑⲛⲉⲱ̀ⲟ:<br>ⲧⲁⲥ ⲉⲛⲧⲏ ⲉⲛⲇⲟⲝⲟ<br>ⲁⲛⲁⲥⲧⲁⲥⲓ ⲩⲧⲟⲩ",
+                        trans: "طون سينا نارخون لوغون باتري كى إبنيفماتي:<br>تون إيكبارثينو تيك ثيندا يس سوتيريان إيمون:<br>أنيم ني سومين بيستي كى إبروس كى<br>نيسومين: أوتي إيفذوكي سى ساركي:<br>إنتو إستافرو كى ثاناتون إيبو ميني:<br>كى إيجيري توس نيثني أوأو:<br>طاس إنتي إندوكصو<br>أناستاسي أفتو",
+                        arabic: "نسبح نحن المؤمنين ونمجد للكلمة المساوي<br>للآب والروح: في الأزلية وعدم الإبتداء،<br>المولود من العذراء لأجل خلاصنا: لأنه سر و ارتضى<br>بالجسد أن يعلو على الصليب:<br>يحتمل الموت و يُنهض الموتى<br>بقيامته المجيدة"
+                    }
+                },
+                { 
+                    id: "tolitho",
+                    title: "لحن طوليثو (Τὸν λίθον)", 
+                    badge: "فرايحي", 
+                    details: "ذكصولوجية القيامة الرومي اليونانية التي تقال في دورة عيد القيامة المجيد والخماسين المقدسة وعيد الصعود.", 
+                    audio: "أولى وتانية ابتدائي/لحن توليثوس.mp3", 
+                    hasLyricsImg: true, lyricsImg: "أولى وتانية ابتدائي/Tolitho_Hazzat.jpg",
+                    lyricsText: {
+                        coptic: "Ⲧⲟⲛ ⲗⲓⲑⲟⲛ ⲥⲫⲣⲁⲅⲓⲥⲑⲉⲛⲧⲁ :<br>ⲩⲡⲟ ⲧⲱⲛ Ⲓⲟⲩⲇⲁⲓⲱⲛ :<br>ⲕⲉ ⲥⲧⲣⲁⲧⲓⲱⲧⲱⲛ ⲫⲩⲗⲁⲥⲥⲟⲛⲧⲱⲛ :<br>ⲧⲟ ⲁⲭⲣⲁⲛⲧⲟⲛ ⲥⲟⲩ ⲥⲱⲙⲁ :<br>ⲁⲛⲉⲥⲧⲏⲥ ⲧⲣⲓⲏⲙⲉⲣⲟⲥ ⲥⲱⲧⲏⲣ :<br>ⲇⲱⲣⲟⲩⲙⲉⲛⲟⲥ ⲧⲱ ⲕⲟⲥⲙⲱ ⲧⲏⲛ ⲝⲱⲏⲛ :<br>ⲇⲓⲁ ⲧⲟⲩⲧⲟ ⲉ ⲇⲩⲛⲁⲙⲓⲥ ⲧⲱⲛ ⲟⲩⲣⲁⲛⲱⲛ :<br>ⲉⲃⲟⲱⲛ ⲥⲟⲓ ⲝⲱⲟⲇⲟⲧⲁ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲁⲛⲁⲥⲧⲁⲥⲓ ⲥⲟⲩ Ⲭⲣⲓⲥⲧⲉ :<br>ⲇⲟⲝα ⲧⲏ ⲃⲁⲥⲓⲗⲓⲁ ⲥⲟⲩ :<br>ⲇⲟⲝⲁ ⲧⲏ ⲓⲕⲟⲛⲟⲙⲓⲁ ⲥⲟⲩ ⲙⲟⲛⲉ ⲫⲓⲗⲁⲛⲑⲣⲱⲡⲉ",
+                        trans: "تو ليثوس فراجيس ثين<br>توس إيبوتون يوذيئون كى<br>إإستراتيوتون فيلاس سون<br>تون تو أكرانتون سوسوما<br>آنيستيس تري إيميروس سوتير<br>ذورومينوس تو كوز موتين ذوئين<br>ذياتوتو إيذيناميس تون أورانون<br>إفؤون سى ذو أوذوتا<br>ذوكساتى آنساستى سو إخرستى<br>ذوكساتى فاسيليا سو<br>ذوكساتى إيكونوميا سومونى فيلان إثروبى",
+                        arabic: "إن الحجر لما ختم من اليهود<br>وجسدك الطاهر حفظ من الجند،<br>قمت في اليوم الثالث أيها المخلص<br>مانحًا العالم الحياة<br>لأجل هذا قوات السموات هتفوا<br>إليك يا واهب الحياة<br>المجد لقيامتك ايها المسيح<br>المجد لملكك<br>المجد لتدبيرك يا محب البشر"
+                    }
+                }
+            ],
+            /* تعديل اسم مصفوفة البيانات هنا لتطابق المسمى الجديد */
+            "الخامس والسادس الابتدائي": [
+                {
+                    id: "evlogimenos",
+                    title: "لحن أفلوجيمينوس (Evlogimenos)",
+                    badge: "شعانيني / فرايحي",
+                    details: "مرد الإنجيل اليوناني الذي يقال في أحد الشعانين وأعياد الملاك ميخائيل.",
+                    audio: "خامس وسادس/evlogimenos.mp3",
+                    hasLyricsImg: false, lyricsImg: "",
+                    lyricsText: {
+                        coptic: "Ⲉⲩⲗⲟⲅⲏⲙⲉⲛⲟⲥ ⲟ ⲉⲣⲭⲟⲙⲉⲛⲟⲥ :<br>ⲉⲛ ⲟboundaryⲙⲁⲧⲓ Ⲕⲩⲣⲓⲟⲩ :<br>ⲡⲁⲗⲓⲛ ⲉⲣⲭⲟⲙⲉⲛⲟⲥ :<br>ⲉⲛ ⲟboundaryⲙⲁⲧⲓ Ⲕⲩⲣⲓⲟⲩ.",
+                        trans: "أفلوجيمينوس أواير خومينوس<br>إن أونوماتي كيريو<br>بالين اير خومينوس<br>إن أونوماتي كيريو",
+                        arabic: "مبارك الآتي باسم الرب<br>وأيضاً الآتي باسم الرب"
+                    }
+                },
+                {
+                    id: "khen_phran",
+                    title: "لحن خين افران (باسم الآب والابن)",
+                    badge: "سنوي",
+                    details: "لحن بركة يقال في استقبال الآباء الأساقفة والمناسبات الكنسية.",
+                    audio: "خامس وسادس/khen_phran.mp3",
+                    hasLyricsImg: false, lyricsImg: "",
+                    lyricsText: {
+                        coptic: "Ϧⲉⲛ ⲫ̀ⲣⲁⲛ ⲙ̀ⲫ̀Ⲓⲱⲧ ⲛⲉⲙ ⲡ̀Ϣⲏⲣⲓ :<br>ⲛⲉⲙ ⲡⲓⲠ̀ⲛⲉⲩⲙⲁ ⲉⲑⲱⲟⲩⲁⲃ :<br>ϮϮⲧⲣⲓⲁⲥ ⲉⲑⲱⲟⲩⲁⲃ ⲛ̀ⲟboundaryⲙⲟⲟⲩⲥⲓⲟⲥ :<br>ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ :<br>ⲡⲁⲓⲱⲧ ⲉⲑⲱⲟⲩⲁⲃ ⲛ̀ⲁⲣⲭⲏⲉⲣⲉⲩⲥ.",
+                        trans: "خين افران ام افيوت نيم ايبشيري<br>نيم بيبنيفما اثواب<br>تي ترياس اثواب ان اومو اوسيوس<br>اكسيوس اكسيوس اكسيوس<br>بايوت اثواب ان ارشيريفس",
+                        arabic: "باسم الآب والابن<br>والروح القدس<br>الثالوث القدوس المساوى في الجوهر<br>مستحق مستحق مستحق<br>أبي القديس رئيس الكهنة"
+                    }
+                }
+            ],
+            "مرحلة حضانة": [], "تالتة ورابعة ابتدائي": [], "المرحلة الإعدادية": [], "المرحلة الثانوية": [], "الجامعيين والخريجين": []
+        },
+        taqs: { "مرحلة حضانة": [], "أولى وتانية ابتدائي": [], "تالتة ورابعة ابتدائي": [], "الخامس والسادس الابتدائي": [], "المرحلة الإعدادية": [], "المرحلة الثانوية": [], "الجامعيين والخريجين": [] },
+        qebti: { "مرحلة حضانة": [], "أولى وتانية ابتدائي": [], "تالتة ورابعة ابتدائي": [], "الخامس والسادس الابتدائي": [], "المرحلة الإعدادية": [], "المرحلة الثانوية": [], "الجامعيين والخريجين": [] }
+    };
+
+    let currentModule = '', currentStage = 'مرحلة حضانة', currentModuleText = '';
+
+    function openContentScreen(m, t) {
+        currentModule = m; currentModuleText = t;
+        document.getElementById('homeScreen').style.display = 'none';
+        document.getElementById('contentScreen').style.display = 'block';
+        document.getElementById('backBtn').style.display = 'flex';
+        loadData();
+    }
+
+    function goBackToHome() {
+        document.getElementById('contentScreen').style.display = 'none';
+        document.getElementById('backBtn').style.display = 'none';
+        document.getElementById('homeScreen').style.display = 'block';
+    }
+
+    function switchStage(s) {
+        const btns = document.querySelectorAll('.stage-btn');
+        btns.forEach(b => b.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+        currentStage = s; loadData();
+    }
+
+    function loadData() {
+        document.getElementById('mainSectionTitle').textContent = `منهج ${currentModuleText} - ${currentStage}`;
+        const menuContainer = document.getElementById('hymnsMenu');
+        const grid = document.getElementById('cardsGrid');
+        
+        menuContainer.innerHTML = ''; 
+        grid.innerHTML = ''; 
+
+        const list = schoolData[currentModule][currentStage];
+
+        if (list && list.length > 0) {
+            list.forEach((item) => {
+                menuContainer.innerHTML += `
+                    <button class="hymn-menu-tab" id="tab-${item.id}" onclick="displaySingleHymn('${item.id}')">
+                        <i class="fa-solid fa-music"></i> ${item.title}
+                    </button>
+                `;
+            });
+
+            grid.innerHTML = `<p style="text-align:center; padding:30px; color:var(--purple-primary); font-size:24px; font-weight:bold; width:100%;">اختار لحن</p>`;
+        } else {
+            menuContainer.innerHTML = '';
+            grid.innerHTML = `<p style="text-align:center; padding:20px; color:var(--text-muted); font-size:18px;">جاري الرفع قريباً...</p>`;
+        }
+    }
+
+    function displaySingleHymn(hymnId) {
+        document.querySelectorAll('.hymn-menu-tab').forEach(t => t.classList.remove('active'));
+        const targetTab = document.getElementById(`tab-${hymnId}`);
+        if(targetTab) targetTab.classList.add('active');
+
+        const grid = document.getElementById('cardsGrid');
+        grid.innerHTML = ''; 
+
+        const list = schoolData[currentModule][currentStage];
+        const item = list.find(h => h.id === hymnId);
+
+        if(item) {
+            let lyricsSection = '';
+            if(item.lyricsText) {
+                lyricsSection = `
+                <div class="lyrics-container">
+                    <div class="lyrics-col"><h4>العربي</h4>${item.lyricsText.arabic}</div>
+                    <div class="lyrics-col"><h4>المعرب</h4>${item.lyricsText.trans}</div>
+                    <div class="lyrics-col coptic"><h4>القبطي</h4>${item.lyricsText.coptic}</div>
+                </div>`;
+            }
+
+            grid.innerHTML = `
+                <div class="hymn-card">
+                    <div class="hymn-title">${item.title}</div>
+                    <div class="hymn-details">${item.details}</div>
+                    <div class="audio-wrapper">
+                        <audio controls><source src="${item.audio}" type="audio/mpeg"></audio>
+                    </div>
+                    ${item.hasLyricsImg ? `<button class="view-lyrics-btn" onclick="openLyrics('${item.lyricsImg}')">فتح صورة اللحن الأصلية</button>` : ''}
+                    ${lyricsSection}
+                </div>`;
+        }
+    }
+
+    function openLyrics(s) { document.getElementById('lyricsModal').style.display = "block"; document.getElementById('modalImg').src = s; }
+    function closeLyrics() { document.getElementById('lyricsModal').style.display = "none"; }
+
+    const modeBtn = document.getElementById('modeBtn');
+    modeBtn.addEventListener('click', () => {
+        if (document.body.getAttribute('data-theme') === 'light') {
+            document.body.removeAttribute('data-theme');
+            document.getElementById('modeText').textContent = 'الوضع المضيء';
+        } else {
+            document.body.setAttribute('data-theme', 'light');
+            document.getElementById('modeText').textContent = 'الوضع الداكن';
+        }
+    });
+</script>
+</body>
+</html>

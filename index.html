@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدرسة الأرشيدياكون hبيب جرجس بشبرا الخيمة</title>
+    <title>مدرسة الأرشيدياكون حبيب جرجس بشبرا الخيمة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -66,6 +66,7 @@
             border: 2px solid var(--purple-primary); background-color: #07111e;
             display: flex; align-items: center; justify-content: center; overflow: hidden;
             box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+            flex-shrink: 0;
         }
 
         .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
@@ -76,19 +77,21 @@
             background: var(--bg-card); border: 1px solid var(--border-purple); color: var(--purple-primary);
             padding: 10px 16px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: bold;
             box-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
+            white-space: nowrap;
         }
 
         .welcome-screen {
             text-align: center; padding: 60px 20px; background-color: var(--bg-card);
             border: 1px solid var(--border-purple); border-radius: 15px; margin-top: 20px;
         }
-        .welcome-screen h2 { color: var(--purple-primary); font-size: 30px; margin-bottom: 15px; font-weight: bold; }
+        .welcome-screen h2 { color: var(--purple-primary); font-size: 30px; margin-bottom: 25px; font-weight: bold; }
 
         .main-choices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 900px; margin: 0 auto; }
         .choice-card {
             background: rgba(255, 255, 255, 0.01); border: 2px solid var(--border-purple);
             padding: 40px 20px; border-radius: 15px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 15px;
         }
+        .choice-card i { font-size: 30px; color: var(--purple-primary); }
         .choice-card span { font-size: 22px; font-weight: bold; }
         .choice-card:hover { border-color: var(--purple-primary); background: rgba(168, 85, 247, 0.1); }
 
@@ -136,11 +139,11 @@
 
         .hymns-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .hymn-card { background-color: var(--bg-card); border: 1px solid var(--border-purple); border-radius: 12px; padding: 25px; position: relative; }
-        .hymn-title { font-size: 22px; color: var(--purple-primary); font-weight: bold; }
+        .hymn-title { font-size: 22px; color: var(--purple-primary); font-weight: bold; margin-bottom: 5px; }
         .hymn-details { font-size: 16px; color: var(--text-muted); margin-bottom: 15px; }
 
         .audio-wrapper { background-color: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 10px; margin: 15px 0; }
-        audio { width: 100%; height: 35px; }
+        audio { width: 100%; height: 35px; display: block; }
 
         .lyrics-container {
             margin-top: 25px; 
@@ -180,9 +183,9 @@
             font-weight: bold; 
         }
 
-        .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
-        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border: 2px solid var(--purple-primary); }
-        .close-modal { position: absolute; top: 15px; left: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+        .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; }
+        .modal-content { margin: auto; display: block; max-width: 95%; max-height: 85vh; border: 2px solid var(--purple-primary); object-fit: contain; }
+        .close-modal { position: absolute; top: 15px; left: 25px; color: #fff; font-size: 40px; cursor: pointer; z-index: 1010; }
 
         .view-lyrics-btn {
             background: none; border: 1px solid var(--purple-primary); color: var(--purple-primary);
@@ -190,6 +193,93 @@
         }
         .view-lyrics-btn:hover { background-color: rgba(168, 85, 247, 0.1); }
         footer { margin-top: 60px; text-align: center; padding: 20px; border-top: 1px solid var(--border-purple); color: var(--text-muted); font-size: 16px; }
+
+        /* ========================================================
+           شفرة التعديل للموبايل والشاشات الصغيرة (Media Queries)
+        ======================================================== */
+        @media (max-width: 992px) {
+            .content-layout {
+                grid-template-columns: 1fr; /* جعل القائمة الجانبية والمحتوى فوق بعض بدل جنب بعض */
+                gap: 20px;
+            }
+            .stages-sidebar {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            header {
+                flex-direction: column; /* ترتيب الهيدر فوق بعضه */
+                gap: 15px;
+                text-align: center;
+                padding: 15px;
+            }
+            .header-right {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+                flex-row-reverse: row-reverse;
+            }
+            .header-titles h1 {
+                font-size: 18px;
+            }
+            .header-titles p {
+                font-size: 14px;
+            }
+            .welcome-screen {
+                padding: 30px 15px;
+            }
+            .welcome-screen h2 {
+                font-size: 22px;
+            }
+            .main-choices-grid {
+                grid-template-columns: 1fr; /* كروت الاختيار تيجى تحت بعض */
+                gap: 15px;
+            }
+            .choice-card {
+                padding: 25px 15px;
+            }
+            .choice-card span {
+                font-size: 18px;
+            }
+            .hymns-menu-container {
+                justify-content: center;
+            }
+            .hymn-menu-tab {
+                font-size: 15px;
+                padding: 8px 14px;
+                width: 100%; /* تفرش بعرض الشاشة في الموبايل لسهولة الضغط */
+                justify-content: center;
+            }
+            .lyrics-container {
+                grid-template-columns: 1fr; /* تقسيم كلمات اللحن يجي تحت بعض بدل 3 أعمدة مضغوطة */
+                border-radius: 6px;
+            }
+            .lyrics-col:not(:last-child) {
+                border-left: none;
+                border-bottom: 1px solid var(--border-purple); /* فصل الخلايا بخط أفقي */
+            }
+            .lyrics-col {
+                font-size: 17px;
+                padding: 12px 5px;
+            }
+            .lyrics-col h4 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .hymn-card {
+                padding: 15px;
+            }
+            .hymn-title {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -212,7 +302,7 @@
     <button class="back-btn" id="backBtn" onclick="goBackToHome()"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</button>
 
     <div id="homeScreen" class="welcome-screen">
-        <h2>المنصة التعليمية للمدرسة</h2>
+        <h2>المنصة Baseline التعليمية للمدرسة</h2>
         <div class="main-choices-grid">
             <div class="choice-card" onclick="openContentScreen('alhan', 'الألحان الكنسية')"><i class="fa-solid fa-cross"></i><span>ألحان الكنيسة</span></div>
             <div class="choice-card" onclick="openContentScreen('taqs', 'الطقس الكنسي')"><i class="fa-solid fa-book-open"></i><span>الطقس الكنسي</span></div>
@@ -246,6 +336,10 @@
     <img class="modal-content" id="modalImg">
 </div>
 
+<footer>
+    <p>كنيسة البابا كيرلس السادس والأرشيدياكون حبيب جرجس</p>
+</footer>
+
 <script>
     const schoolData = {
         alhan: {
@@ -265,7 +359,7 @@
                 },
                 { 
                     id: "tolitho",
-                    title: "لحن طوليثو (Τὸν λίθον)", 
+                    title: "لحن طوليثو (Τὸν λίθον)", 
                     badge: "فرايحي", 
                     details: "ذكصولوجية القيامة الرومي اليونانية التي تقال في دورة عيد القيامة المجيد والخماسين المقدسة وعيد الصعود.", 
                     audio: "أولى وتانية ابتدائي/لحن توليثوس.mp3", 
@@ -277,7 +371,6 @@
                     }
                 }
             ],
-            /* تعديل اسم مصفوفة البيانات هنا لتطابق المسمى الجديد */
             "الخامس والسادس الابتدائي": [
                 {
                     id: "evlogimenos",
@@ -300,7 +393,7 @@
                     audio: "خامس وسادس/khen_phran.mp3",
                     hasLyricsImg: false, lyricsImg: "",
                     lyricsText: {
-                        coptic: "Ϧⲉⲛ ⲫ̀ⲣⲁⲛ ⲙ̀ⲫ̀Ⲓⲱⲧ ⲛⲉⲙ ⲡ̀Ϣⲏⲣⲓ :<br>ⲛⲉⲙ ⲡⲓⲠ̀ⲛⲉⲩⲙⲁ ⲉⲑⲱⲟⲩⲁⲃ :<br>ϮϮⲧⲣⲓⲁⲥ ⲉⲑⲱⲟⲩⲁⲃ ⲛ̀ⲟboundaryⲙⲟⲟⲩⲥⲓⲟⲥ :<br>ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ :<br>ⲡⲁⲓⲱⲧ ⲉⲑⲱⲟⲩⲁⲃ ⲛ̀ⲁⲣⲭⲏⲉⲣⲉⲩⲥ.",
+                        coptic: "Ϧⲉⲛ ⲫ̀ⲣⲁⲛ ⲙ̀ⲫ̀Ⲓⲱⲧ ⲙ̀ⲫ̀Ϣⲏⲣⲓ :<br>ⲛⲉⲙ ⲡⲓⲠ̀ⲛⲉⲩⲙⲁ ⲉⲑⲱⲟⲩⲃ :<br>ϮϮⲧⲣⲓⲁⲥ ⲉⲑⲱⲟⲩⲃ ⲛ̀ⲟboundaryⲙⲟⲟⲩⲥⲓⲟⲥ :<br>ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ ⲁⲝⲓⲟⲥ :<br>ⲡⲁⲓⲱⲧ ⲉⲑⲱⲟⲩⲃ ⲛ̀ⲁⲣⲭⲏⲉⲣⲉⲩⲥ.",
                         trans: "خين افران ام افيوت نيم ايبشيري<br>نيم بيبنيفما اثواب<br>تي ترياس اثواب ان اومو اوسيوس<br>اكسيوس اكسيوس اكسيوس<br>بايوت اثواب ان ارشيريفس",
                         arabic: "باسم الآب والابن<br>والروح القدس<br>الثالوث القدوس المساوى في الجوهر<br>مستحق مستحق مستحق<br>أبي القديس رئيس الكهنة"
                     }
@@ -404,9 +497,11 @@
         if (document.body.getAttribute('data-theme') === 'light') {
             document.body.removeAttribute('data-theme');
             document.getElementById('modeText').textContent = 'الوضع المضيء';
+            document.getElementById('modeIcon').className = 'fa-solid fa-sun';
         } else {
             document.body.setAttribute('data-theme', 'light');
             document.getElementById('modeText').textContent = 'الوضع الداكن';
+            document.getElementById('modeIcon').className = 'fa-solid fa-moon';
         }
     });
 </script>

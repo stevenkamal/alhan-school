@@ -56,26 +56,61 @@
             padding: 15px 20px;
             margin-bottom: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            gap: 15px;
         }
 
-        .header-right { display: flex; align-items: center; gap: 15px; }
-        .header-left { display: flex; align-items: center; gap: 20px; }
+        .header-right { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            flex: 1;
+        }
+
+        .header-left { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
 
         .logo-circle {
-            width: 85px; height: 85px; border-radius: 50%;
-            border: 2px solid var(--purple-primary); background-color: #07111e;
-            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            width: 80px; 
+            height: 80px; 
+            border-radius: 50%;
+            border: 2px solid var(--purple-primary); 
+            background-color: #07111e;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
             box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
             flex-shrink: 0;
         }
 
-        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .header-titles h1 { font-size: 24px; color: var(--text-light); margin-bottom: 5px; font-weight: bold; }
-        .header-titles p { font-size: 16px; color: var(--text-muted); }
+        .logo-circle img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+        
+        .header-titles {
+            text-align: right;
+        }
+        .header-titles h1 { font-size: 20px; color: var(--text-light); margin-bottom: 3px; font-weight: bold; }
+        .header-titles .sub-title-1 { font-size: 15px; color: var(--purple-primary); margin-bottom: 2px; font-weight: bold; }
+        .header-titles .sub-title-2 { font-size: 13px; color: var(--text-muted); }
 
         .theme-toggle {
-            background: var(--bg-card); border: 1px solid var(--border-purple); color: var(--purple-primary);
-            padding: 10px 16px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: bold;
+            background: var(--bg-card); 
+            border: 1px solid var(--border-purple); 
+            color: var(--purple-primary);
+            padding: 10px 16px; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 14px; 
+            font-weight: bold;
             box-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
             white-space: nowrap;
         }
@@ -222,10 +257,12 @@
         @media (max-width: 768px) {
             body { padding: 10px; }
             header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; }
-            .header-right { flex-direction: column; gap: 10px; }
-            .header-left { width: 100%; justify-content: space-between; flex-row-reverse: row-reverse; }
-            .header-titles h1 { font-size: 18px; }
-            .header-titles p { font-size: 14px; }
+            .header-right { flex-direction: column; gap: 10px; text-align: center; }
+            .header-titles { text-align: center; }
+            .header-left { width: 100%; justify-content: center; gap: 15px; }
+            .header-titles h1 { font-size: 17px; }
+            .header-titles .sub-title-1 { font-size: 13px; }
+            .header-titles .sub-title-2 { font-size: 12px; }
             .welcome-screen { padding: 30px 15px; }
             .welcome-screen h2 { font-size: 22px; }
             .main-choices-grid { grid-template-columns: 1fr; gap: 15px; }
@@ -245,16 +282,30 @@
 
 <div class="main-container">
     <header>
+        <!-- الجهة اليمنى: شعار الكنيسة + النصوص -->
         <div class="header-right">
-            <div class="logo-circle"><img src="image_4681e5.jpg"></div>
+            <div class="logo-circle" title="شعار مدرسة الألحان">
+                <img src="image_4681e5.jpg" alt="شعار الكنيسة">
+            </div>
             <div class="header-titles">
                 <h1>كنيسة البابا كيرلس السادس والأرشيدياكون حبيب جرجس بشبرا الخيمة</h1>
-                <p>مدرسة الألحان والطقوس واللغة القبطية</p>
+                <p class="sub-title-1">مطرانية شبرا الخيمة وكل توابعها</p>
+                <p class="sub-title-2">تحت رعاية سيدنا الأنبا مرقس وإشراف آباء الكنيسة</p>
             </div>
         </div>
+
+        <!-- الجهة اليسرى: صورة القديسين + شعار المطرانية + زر الوضع الداكن/المضيء -->
         <div class="header-left">
-            <div class="logo-circle"><img src="image_467ef8.jpg"></div>
-            <button class="theme-toggle" id="modeBtn"><i class="fa-solid fa-sun" id="modeIcon"></i> <span id="modeText">الوضع المضيء</span></button>
+            <div class="logo-circle" title="صورة القديسين">
+                <img src="image_467ef8.jpg" alt="البابا كيرلس والأرشيدياكون حبيب جرجس">
+            </div>
+            <div class="logo-circle" title="شعار المطرانية">
+                <img src="mouatrania.jpg" alt="شعار المطرانية">
+            </div>
+            <button class="theme-toggle" id="modeBtn">
+                <i class="fa-solid fa-sun" id="modeIcon"></i> 
+                <span id="modeText">الوضع المضيء</span>
+            </button>
         </div>
     </header>
 

@@ -1,371 +1,635 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدرسة الأرشيدياكون حبيب جرجس بشبرا الخيمة</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدرسة الأرشيدياكون حبيب جرجس بشبرا الخيمة</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
         :root {
-            --bg-dark: #07111e;
-            --bg-card: #0d1f38;
-            --header-bg: #142a4a;
-            --purple-primary: #a855f7;
-            --text-light: #ffffff;
-            --text-muted: #8fa0b5;
-            --border-purple: rgba(168, 85, 247, 0.3);
+            --bg-dark:#07111e;
+            --bg-card:#0d1f38;
+            --header-bg:#142a4a;
+            --purple-primary:#a855f7;
+            --text-light:#fff;
+            --text-muted:#8fa0b5;
+            --border-purple:rgba(168,85,247,.3);
         }
 
         [data-theme="light"] {
-            --bg-dark: #f0f4f8;
-            --bg-card: #ffffff;
-            --header-bg: #e2e8f0;
-            --purple-primary: #7c3aed;
-            --text-light: #07111e;
-            --text-muted: #64748b;
-            --border-purple: rgba(124, 58, 237, 0.4);
+            --bg-dark:#f0f4f8;
+            --bg-card:#fff;
+            --header-bg:#e2e8f0;
+            --purple-primary:#7c3aed;
+            --text-light:#07111e;
+            --text-muted:#64748b;
+            --border-purple:rgba(124,58,237,.4);
         }
 
         * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+            transition:background-color .3s,color .3s,border-color .3s;
         }
 
         body {
-            font-family: 'Times New Roman', Times, 'Simplified Arabic', Georgia, serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            padding: 20px;
-            line-height: 1.6;
+            font-family:'Times New Roman',Times,'Simplified Arabic',Georgia,serif;
+            background:var(--bg-dark);
+            color:var(--text-light);
+            padding:20px;
+            line-height:1.6;
         }
 
         .main-container {
-            max-width: 1300px;
-            margin: 0 auto;
+            max-width:1300px;
+            margin:0 auto;
         }
 
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--header-bg);
-            border: 1px solid var(--border-purple);
-            border-radius: 15px;
-            padding: 15px 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            gap: 15px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            background:var(--header-bg);
+            border:1px solid var(--border-purple);
+            border-radius:15px;
+            padding:15px 20px;
+            margin-bottom:30px;
+            box-shadow:0 4px 15px rgba(0,0,0,.3);
+            gap:15px;
         }
 
-        .header-right { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            flex: 1;
+        .header-right {
+            display:flex;
+            align-items:center;
+            gap:15px;
+            flex:1;
         }
 
-        .header-left { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
+        .header-left {
+            display:flex;
+            align-items:center;
+            gap:15px;
         }
 
         .logo-circle {
-            width: 80px; 
-            height: 80px; 
-            border-radius: 50%;
-            border: 2px solid var(--purple-primary); 
-            background-color: #07111e;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
-            flex-shrink: 0;
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            border:2px solid var(--purple-primary);
+            background:#07111e;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+            box-shadow:0 0 10px rgba(168,85,247,.4);
+            flex-shrink:0;
         }
 
-        .logo-circle img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
+        .logo-circle img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
         }
-        
+
         .header-titles {
-            text-align: right;
+            text-align:right;
         }
-        .header-titles h1 { font-size: 20px; color: var(--text-light); margin-bottom: 3px; font-weight: bold; }
-        .header-titles .sub-title-1 { font-size: 15px; color: var(--purple-primary); margin-bottom: 2px; font-weight: bold; }
-        .header-titles .sub-title-2 { font-size: 13px; color: var(--text-muted); }
+
+        .header-titles h1 {
+            font-size:20px;
+            margin-bottom:3px;
+            font-weight:bold;
+        }
+
+        .header-titles .sub-title-1 {
+            font-size:15px;
+            color:var(--purple-primary);
+            margin-bottom:2px;
+            font-weight:bold;
+        }
+
+        .header-titles .sub-title-2 {
+            font-size:13px;
+            color:var(--text-muted);
+        }
 
         .theme-toggle {
-            background: var(--bg-card); 
-            border: 1px solid var(--border-purple); 
-            color: var(--purple-primary);
-            padding: 10px 16px; 
-            border-radius: 25px; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            font-size: 14px; 
-            font-weight: bold;
-            box-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
-            white-space: nowrap;
+            background:var(--bg-card);
+            border:1px solid var(--border-purple);
+            color:var(--purple-primary);
+            padding:10px 16px;
+            border-radius:25px;
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+            gap:8px;
+            font-size:14px;
+            font-weight:bold;
+            box-shadow:0 0 8px rgba(168,85,247,.2);
+            white-space:nowrap;
+            font-family:inherit;
         }
 
         .welcome-screen {
-            text-align: center; padding: 60px 20px; background-color: var(--bg-card);
-            border: 1px solid var(--border-purple); border-radius: 15px; margin-top: 20px;
+            text-align:center;
+            padding:60px 20px;
+            background:var(--bg-card);
+            border:1px solid var(--border-purple);
+            border-radius:15px;
+            margin-top:20px;
         }
-        .welcome-screen h2 { color: var(--purple-primary); font-size: 30px; margin-bottom: 25px; font-weight: bold; }
 
-        .main-choices-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 25px; 
-            max-width: 900px; 
-            margin: 0 auto; 
+        .welcome-screen h2 {
+            color:var(--purple-primary);
+            font-size:30px;
+            margin-bottom:25px;
         }
-        
+
+        .main-choices-grid {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:25px;
+            max-width:900px;
+            margin:0 auto;
+        }
+
         .choice-card {
-            background: rgba(255, 255, 255, 0.01); border: 2px solid var(--border-purple);
-            padding: 40px 20px; border-radius: 15px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 15px;
+            border:2px solid var(--border-purple);
+            padding:40px 20px;
+            border-radius:15px;
+            cursor:pointer;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:15px;
         }
-        .choice-card i { font-size: 30px; color: var(--purple-primary); }
-        .choice-card span { font-size: 22px; font-weight: bold; }
-        .choice-card:hover { border-color: var(--purple-primary); background: rgba(168, 85, 247, 0.1); }
+
+        .choice-card i {
+            font-size:30px;
+            color:var(--purple-primary);
+        }
+
+        .choice-card span {
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        .choice-card:hover {
+            border-color:var(--purple-primary);
+            background:rgba(168,85,247,.1);
+        }
 
         .back-btn {
-            background: var(--bg-card); border: 1px solid var(--border-purple); color: var(--text-light);
-            padding: 8px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; display: none; align-items: center; gap: 5px; font-size: 16px;
+            background:var(--bg-card);
+            border:1px solid var(--border-purple);
+            color:var(--text-light);
+            padding:8px 15px;
+            border-radius:8px;
+            cursor:pointer;
+            margin-bottom:20px;
+            display:none;
+            align-items:center;
+            gap:5px;
+            font-size:16px;
+            font-family:inherit;
         }
-        .back-btn:hover { border-color: var(--purple-primary); color: var(--purple-primary); }
+
+        .back-btn:hover {
+            border-color:var(--purple-primary);
+            color:var(--purple-primary);
+        }
 
         .back-to-stages-btn {
-            display: none;
-            background: var(--bg-card); border: 1px solid var(--purple-primary); color: var(--purple-primary);
-            padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-bottom: 15px; align-items: center; gap: 8px; font-size: 16px; font-weight: bold;
-            width: 100%; justify-content: center;
+            display:none;
+            background:var(--bg-card);
+            border:1px solid var(--purple-primary);
+            color:var(--purple-primary);
+            padding:10px 15px;
+            border-radius:8px;
+            cursor:pointer;
+            margin-bottom:15px;
+            align-items:center;
+            gap:8px;
+            font-size:16px;
+            font-weight:bold;
+            width:100%;
+            justify-content:center;
+            font-family:inherit;
         }
 
-        .content-screen { display: none; }
-        
-        .content-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 3fr; 
-            gap: 30px; 
+        .content-screen {
+            display:none;
+        }
+
+        .content-layout {
+            display:grid;
+            grid-template-columns:1fr 3fr;
+            gap:30px;
         }
 
         .stages-sidebar {
-            background-color: var(--bg-card); border: 1px solid var(--border-purple);
-            border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; height: fit-content;
+            background:var(--bg-card);
+            border:1px solid var(--border-purple);
+            border-radius:12px;
+            padding:20px;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            height:fit-content;
         }
-        .stages-sidebar h3 { font-size: 20px; color: var(--text-light); text-align: center; margin-bottom: 10px; font-weight: bold;}
+
+        .stages-sidebar h3 {
+            font-size:20px;
+            text-align:center;
+            margin-bottom:10px;
+        }
 
         .stage-btn {
-            background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-purple); color: var(--text-light);
-            padding: 12px 15px; border-radius: 8px; cursor: pointer; text-align: right; font-size: 18px; font-weight: bold; display: flex; align-items: center; justify-content: space-between;
+            background:none;
+            border:1px solid var(--border-purple);
+            color:var(--text-light);
+            padding:12px 15px;
+            border-radius:8px;
+            cursor:pointer;
+            text-align:right;
+            font-size:18px;
+            font-weight:bold;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            font-family:inherit;
         }
-        .stage-btn:hover, .stage-btn.active { background-color: rgba(168, 85, 247, 0.15); border-color: var(--purple-primary); color: var(--purple-primary); box-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
 
-        .content-main-area { display: block; }
-        .section-title { color: var(--purple-primary); font-size: 24px; margin-bottom: 20px; border-right: 4px solid var(--purple-primary); padding-right: 10px; font-weight: bold; }
+        .stage-btn:hover,.stage-btn.active {
+            background:rgba(168,85,247,.15);
+            border-color:var(--purple-primary);
+            color:var(--purple-primary);
+            box-shadow:0 0 10px rgba(168,85,247,.2);
+        }
+
+        .section-title {
+            color:var(--purple-primary);
+            font-size:24px;
+            margin-bottom:20px;
+            border-right:4px solid var(--purple-primary);
+            padding-right:10px;
+            font-weight:bold;
+        }
 
         .term-selector {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
+            display:flex;
+            gap:15px;
+            margin-bottom:20px;
         }
 
         .term-btn {
-            flex: 1;
-            padding: 12px;
-            background: var(--bg-card);
-            border: 2px solid var(--border-purple);
-            color: var(--text-light);
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            text-align: center;
+            flex:1;
+            padding:12px;
+            background:var(--bg-card);
+            border:2px solid var(--border-purple);
+            color:var(--text-light);
+            font-size:18px;
+            font-weight:bold;
+            border-radius:10px;
+            cursor:pointer;
+            text-align:center;
+            font-family:inherit;
         }
 
-        .term-btn.active, .term-btn:hover {
-            border-color: var(--purple-primary);
-            background-color: rgba(168, 85, 247, 0.2);
-            color: var(--purple-primary);
+        .term-btn.active,.term-btn:hover {
+            border-color:var(--purple-primary);
+            background:rgba(168,85,247,.2);
+            color:var(--purple-primary);
         }
 
         .hymns-menu-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+            gap:15px;
+            margin-bottom:25px;
         }
 
         .hymn-menu-tab {
-            background-color: var(--bg-card); 
-            border: 1px solid var(--border-purple); 
-            color: var(--text-light);
-            padding: 20px; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-size: 18px; 
-            font-weight: bold;
-            display: flex; 
-            align-items: center; 
-            gap: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .hymn-menu-tab:hover { 
-            border-color: var(--purple-primary); 
-            background-color: rgba(168, 85, 247, 0.15); 
-            color: var(--purple-primary); 
-            transform: translateY(-2px);
+            background:var(--bg-card);
+            border:1px solid var(--border-purple);
+            color:var(--text-light);
+            padding:20px;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:18px;
+            font-weight:bold;
+            display:flex;
+            align-items:center;
+            gap:12px;
+            box-shadow:0 2px 8px rgba(0,0,0,.2);
         }
 
-        .hymns-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .hymn-card { background-color: var(--bg-card); border: 1px solid var(--border-purple); border-radius: 12px; padding: 25px; position: relative; }
-        .hymn-title { font-size: 22px; color: var(--purple-primary); font-weight: bold; margin-bottom: 5px; }
-        .hymn-details { font-size: 16px; color: var(--text-muted); margin-bottom: 15px; }
+        .hymn-menu-tab:hover {
+            border-color:var(--purple-primary);
+            background:rgba(168,85,247,.15);
+            color:var(--purple-primary);
+            transform:translateY(-2px);
+        }
 
-        .audio-wrapper { background-color: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 10px; margin: 15px 0; }
-        audio { width: 100%; height: 35px; display: block; }
+        .hymns-grid {
+            display:grid;
+            grid-template-columns:1fr;
+            gap:20px;
+        }
 
-        .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; text-align: center; }
-        .modal-content { margin: auto; display: block; max-width: 95%; max-height: 85vh; border: 2px solid var(--purple-primary); object-fit: contain; }
-        .close-modal { position: absolute; top: 15px; left: 25px; color: #fff; font-size: 40px; cursor: pointer; z-index: 1010; }
+        .hymn-card {
+            background:var(--bg-card);
+            border:1px solid var(--border-purple);
+            border-radius:12px;
+            padding:25px;
+        }
 
-        .view-lyrics-btn { background: none; border: 1px solid var(--purple-primary); color: var(--purple-primary); padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-top: 15px; font-weight: bold; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; }
-        .view-lyrics-btn:hover { background-color: rgba(168, 85, 247, 0.15); }
-        
+        .hymn-title {
+            font-size:22px;
+            color:var(--purple-primary);
+            font-weight:bold;
+            margin-bottom:5px;
+        }
+
+        .hymn-details {
+            font-size:16px;
+            color:var(--text-muted);
+            margin-bottom:15px;
+        }
+
+        .audio-wrapper {
+            background:rgba(0,0,0,.3);
+            border-radius:8px;
+            padding:10px;
+            margin:15px 0;
+        }
+
+        audio {
+            width:100%;
+            height:35px;
+            display:block;
+        }
+
+        .modal {
+            display:none;
+            position:fixed;
+            z-index:1000;
+            padding-top:50px;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,.9);
+            overflow-y:auto;
+            text-align:center;
+        }
+
+        .modal-content {
+            margin:auto;
+            display:block;
+            max-width:95%;
+            border:2px solid var(--purple-primary);
+        }
+
+        .modal-msg {
+            color:#fff;
+            font-size:20px;
+            padding:30px;
+            display:none;
+        }
+
+        .close-modal {
+            position:fixed;
+            top:15px;
+            left:25px;
+            color:#fff;
+            font-size:40px;
+            cursor:pointer;
+            z-index:1010;
+        }
+
+        .view-lyrics-btn {
+            background:none;
+            border:1px solid var(--purple-primary);
+            color:var(--purple-primary);
+            padding:10px 20px;
+            border-radius:8px;
+            cursor:pointer;
+            margin-top:15px;
+            font-weight:bold;
+            font-size:16px;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            font-family:inherit;
+        }
+
+        .view-lyrics-btn:hover {
+            background:rgba(168,85,247,.15);
+        }
+
         .back-to-list-btn {
-            background: var(--bg-card); border: 1px solid var(--purple-primary); color: var(--purple-primary);
-            padding: 8px 16px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: bold;
+            background:var(--bg-card);
+            border:1px solid var(--purple-primary);
+            color:var(--purple-primary);
+            padding:8px 16px;
+            border-radius:8px;
+            cursor:pointer;
+            margin-bottom:20px;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            font-size:16px;
+            font-weight:bold;
+            font-family:inherit;
         }
-        .back-to-list-btn:hover { background-color: rgba(168, 85, 247, 0.15); }
 
-        footer { margin-top: 60px; text-align: center; padding: 20px; border-top: 1px solid var(--border-purple); color: var(--text-muted); font-size: 16px; }
-
-        @media (max-width: 992px) {
-            .content-layout { grid-template-columns: 1fr; gap: 20px; }
-            .stages-sidebar { width: 100%; }
+        .back-to-list-btn:hover {
+            background:rgba(168,85,247,.15);
         }
 
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; }
-            .header-right { flex-direction: column; gap: 10px; text-align: center; }
-            .header-titles { text-align: center; }
-            .header-left { width: 100%; justify-content: center; gap: 15px; }
-            .header-titles h1 { font-size: 17px; }
-            .header-titles .sub-title-1 { font-size: 13px; }
-            .header-titles .sub-title-2 { font-size: 12px; }
-            .welcome-screen { padding: 30px 15px; }
-            .welcome-screen h2 { font-size: 22px; }
-            .main-choices-grid { grid-template-columns: 1fr; gap: 15px; }
-            .choice-card { padding: 25px 15px; }
-            .choice-card span { font-size: 18px; }
-            
-            .content-main-area { display: none; }
-            .back-to-stages-btn { display: flex; }
-            .hymns-menu-container { grid-template-columns: 1fr; }
-            .hymn-menu-tab { font-size: 16px; padding: 15px; justify-content: flex-start; }
-            .hymn-card { padding: 15px; }
-            .hymn-title { font-size: 18px; }
+        footer {
+            margin-top:60px;
+            text-align:center;
+            padding:20px;
+            border-top:1px solid var(--border-purple);
+            color:var(--text-muted);
+            font-size:16px;
         }
+
+        @media(max-width:992px) {
+            .content-layout {
+                grid-template-columns:1fr;
+                gap:20px;
+            }
+        }
+
+        @media(max-width:768px) {
+            body {
+                padding:10px;
+            }
+            header {
+                display:grid;
+                grid-template-columns:auto 1fr auto;
+                grid-template-areas:"church saints metro" "titles titles titles" "toggle toggle toggle";
+                align-items:center;
+                row-gap:12px;
+                padding:15px;
+            }
+            .header-right,.header-left {
+                display:contents;
+            }
+            .logo-circle {
+                width:68px;
+                height:68px;
+            }
+            .logo-church {
+                grid-area:church;
+                justify-self:start;
+            }
+            .logo-service {
+                grid-area:saints;
+                justify-self:center;
+            }
+            .logo-metro {
+                grid-area:metro;
+                justify-self:end;
+            }
+            .header-titles {
+                grid-area:titles;
+                text-align:center;
+            }
+            .theme-toggle {
+                grid-area:toggle;
+                justify-self:center;
+            }
+            .header-titles h1 {
+                font-size:17px;
+            }
+            .header-titles .sub-title-1 {
+                font-size:13px;
+            }
+            .header-titles .sub-title-2 {
+                font-size:12px;
+            }
+            .welcome-screen {
+                padding:30px 15px;
+            }
+            .welcome-screen h2 {
+                font-size:22px;
+            }
+            .main-choices-grid {
+                grid-template-columns:1fr;
+                gap:15px;
+            }
+            .choice-card {
+                padding:25px 15px;
+            }
+            .choice-card span {
+                font-size:18px;
+            }
+            .content-main-area {
+                display:none;
+            }
+            .back-to-stages-btn {
+                display:flex;
+            }
+            .hymns-menu-container {
+                grid-template-columns:1fr;
+            }
+            .hymn-menu-tab {
+                font-size:16px;
+                padding:15px;
+            }
+            .hymn-card {
+                padding:15px;
+            }
+            .hymn-title {
+                font-size:18px;
+            }
+        }
+
+        @media(max-width:380px) {
+            .logo-circle {
+                width:56px;
+                height:56px;
+            }
+        }
+
     </style>
 </head>
 <body>
-
 <div class="main-container">
-    <header>
-        <!-- الجهة اليمنى: شعار الكنيسة + النصوص -->
-        <div class="header-right">
-            <div class="logo-circle" title="شعار مدرسة الألحان">
-                <img src="image_4681e5.jpg" alt="شعار الكنيسة">
-            </div>
-            <div class="header-titles">
-                <h1>كنيسة البابا كيرلس السادس والأرشيدياكون حبيب جرجس بشبرا الخيمة</h1>
-                <p class="sub-title-1">مطرانية شبرا الخيمة وكل توابعها</p>
-                <p class="sub-title-2">تحت رعاية سيدنا الأنبا مرقس وإشراف آباء الكنيسة</p>
-            </div>
-        </div>
+<header>
+ <div class="header-right">
+  <div class="logo-circle logo-church" title="صورة الكنيسة"><img src="image_467ef8.jpg" alt="صورة الكنيسة"></div>
+  <div class="header-titles">
+   <p class="sub-title-1">مطرانية شبرا الخيمة وكل توابعها</p>
+   <h1>كنيسة البابا كيرلس السادس والأرشيدياكون حبيب جرجس بشبرا الخيمة</h1>
+   <p class="sub-title-2">تحت رعاية سيدنا الأنبا مرقس مطران شبرا الخيمة</p>
+   <p class="sub-title-2">إشراف آباء الكنيسة</p>
+  </div>
+ </div>
+ <div class="header-left">
+  <div class="logo-circle logo-service" title="شعار الخدمة"><img src="image_4681e5.jpg" alt="شعار الخدمة"></div>
+  <div class="logo-circle logo-metro" title="صورة سيدنا"><img src="mouatrania.jpg" alt="صورة سيدنا"></div>
+  <button class="theme-toggle" id="modeBtn"><i class="fa-solid fa-sun" id="modeIcon"></i> <span id="modeText">الوضع المضيء</span></button>
+ </div>
+</header>
 
-        <!-- الجهة اليسرى: صورة القديسين + شعار المطرانية + زر الوضع الداكن/المضيء -->
-        <div class="header-left">
-            <div class="logo-circle" title="صورة القديسين">
-                <img src="image_467ef8.jpg" alt="البابا كيرلس والأرشيدياكون حبيب جرجس">
-            </div>
-            <div class="logo-circle" title="شعار المطرانية">
-                <img src="mouatrania.jpg" alt="شعار المطرانية">
-            </div>
-            <button class="theme-toggle" id="modeBtn">
-                <i class="fa-solid fa-sun" id="modeIcon"></i> 
-                <span id="modeText">الوضع المضيء</span>
-            </button>
-        </div>
-    </header>
+<button class="back-btn" id="backBtn" onclick="history.back()"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</button>
 
-    <button class="back-btn" id="backBtn" onclick="history.back()"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</button>
+<div id="homeScreen" class="welcome-screen">
+ <h2>المنصة التعليمية للمدرسة</h2>
+ <div class="main-choices-grid">
+  <div class="choice-card" onclick="openContentScreen('alhan','الألحان الكنسية')"><i class="fa-solid fa-cross"></i><span>ألحان الكنيسة</span></div>
+  <div class="choice-card" onclick="openContentScreen('taqs','الطقس الكنسي')"><i class="fa-solid fa-book-open"></i><span>الطقس الكنسي</span></div>
+  <div class="choice-card" onclick="openContentScreen('qebti','اللغة القبطية')"><i class="fa-solid fa-gopuram"></i><span>اللغة القبطية</span></div>
+ </div>
+</div>
 
-    <div id="homeScreen" class="welcome-screen">
-        <h2>المنصة التعليمية للمدرسة</h2>
-        <div class="main-choices-grid">
-            <div class="choice-card" onclick="openContentScreen('alhan', 'الألحان الكنسية')"><i class="fa-solid fa-cross"></i><span>ألحان الكنيسة</span></div>
-            <div class="choice-card" onclick="openContentScreen('taqs', 'الطقس الكنسي')"><i class="fa-solid fa-book-open"></i><span>الطقس الكنسي</span></div>
-            <div class="choice-card" onclick="openContentScreen('qebti', 'اللغة القبطية')"><i class="fa-solid fa-gopuram"></i><span>اللغة القبطية</span></div>
-        </div>
-    </div>
-
-    <div id="contentScreen" class="content-screen">
-        <div class="content-layout">
-            <div class="stages-sidebar" id="stagesSidebar">
+<div id="contentScreen" class="content-screen">
+ <div class="content-layout">
+  <div class="stages-sidebar" id="stagesSidebar">
                 <h3>المراحل الدراسية</h3>
-                <button class="stage-btn active" onclick="switchStage('حضانه')">مرحلة حضانة <i class="fa-solid fa-chevron-left"></i></button>
-                <button class="stage-btn" onclick="switchStage('أولى وتانية ابتدائي')">أولى وتانية ابتدائي <i class="fa-solid fa-chevron-left"></i></button>
-                <button class="stage-btn" onclick="switchStage('تالته ورابعه')">تالتة ورابعة ابتدائي <i class="fa-solid fa-chevron-left"></i></button>
-                <button class="stage-btn" onclick="switchStage('خامسه وسادسه')">الخامس والسادس الابتدائي <i class="fa-solid fa-chevron-left"></i></button>
-                <button class="stage-btn" onclick="switchStage('اعدادي')">المرحلة الإعدادية <i class="fa-solid fa-chevron-left"></i></button>
-                <button class="stage-btn" onclick="switchStage('ثانوي')">المرحلة الثانوية <i class="fa-solid fa-chevron-left"></i></button>
-                <button class="stage-btn" onclick="switchStage('جامعيين وخريجين')">الجامعيين وخريجين <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn active" onclick="switchStage('حضانه', this)">مرحلة حضانة <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('أولى وتانية ابتدائي', this)">أولى وتانية ابتدائي <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('تالته ورابعه', this)">تالتة ورابعة ابتدائي <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('خامسه وسادسه', this)">الخامس والسادس الابتدائي <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('اعدادي', this)">المرحلة الإعدادية <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('ثانوي', this)">المرحلة الثانوية <i class="fa-solid fa-chevron-left"></i></button>
+                <button class="stage-btn" onclick="switchStage('جامعيين وخريجين', this)">الجامعيين وخريجين <i class="fa-solid fa-chevron-left"></i></button>
             </div>
-            
-            <div class="content-main-area" id="contentMainArea">
-                <button class="back-to-stages-btn" onclick="history.back()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة المراحل</button>
-                
-                <div class="section-title"><span id="mainSectionTitle">المنهج</span></div>
-
-                <div class="term-selector" id="termSelector">
-                    <button class="term-btn active" id="term1Btn" onclick="switchTerm('term1')">الترم الأول</button>
-                    <button class="term-btn" id="term2Btn" onclick="switchTerm('term2')">الترم الثاني</button>
-                </div>
-
-                <div class="hymns-menu-container" id="hymnsMenu"></div>
-                <div class="hymns-grid" id="cardsGrid"></div>
-            </div>
-        </div>
-    </div>
+  <div class="content-main-area" id="contentMainArea">
+   <button class="back-to-stages-btn" onclick="history.back()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة المراحل</button>
+   <div class="section-title"><span id="mainSectionTitle">المنهج</span></div>
+   <div class="term-selector" id="termSelector">
+    <button class="term-btn active" id="term1Btn" onclick="switchTerm('term1')">الترم الأول</button>
+    <button class="term-btn" id="term2Btn" onclick="switchTerm('term2')">الترم الثاني</button>
+   </div>
+   <div class="hymns-menu-container" id="hymnsMenu"></div>
+   <div class="hymns-grid" id="cardsGrid"></div>
+  </div>
+ </div>
+</div>
 </div>
 
 <div id="lyricsModal" class="modal">
-    <span class="close-modal" onclick="closeLyrics()">&times;</span>
-    <img class="modal-content" id="modalImg">
+ <span class="close-modal" onclick="closeLyrics()">&times;</span>
+ <div class="modal-msg" id="modalMsg"></div>
+ <img class="modal-content" id="modalImg" alt="كلمات اللحن">
 </div>
 
-<footer>
-    <p>كنيسة البابا كيرلس السادس والأرشيدياكون حبيب جرجس</p>
-</footer>
+<footer><p>كنيسة البابا كيرلس السادس والأرشيدياكون حبيب جرجس</p></footer>
 
 <script>
-    const schoolData = {
-        alhan: {
-            "حضانه": {
-                term1: [
+const schoolData = {
+    alhan: {
+        "حضانه": {
+            term1: [
                     {
-                        id: "pi_jin_misi",
+                        id: "pijin_1",
                         title: "بي جين ميسي",
                         badge: "كيهكي / فرايحي",
                         details: "لحن بي جين ميسي الخاص بعيد الميلاد وشهر كيهك.",
@@ -374,7 +638,7 @@
                         lyricsImg: "حضانه/الحان/ترم اول/بي جين ميسي/lyrics.png"
                     },
                     {
-                        id: "qanoun_khetām_kiahk",
+                        id: "qanoun_1",
                         title: "قانون ختام الصلاة (كيهك)",
                         badge: "كيهكي",
                         details: "قانون ختام الصلاة الخاص بتسبحة شهر كيهك المبارك.",
@@ -383,7 +647,7 @@
                         lyricsImg: "حضانه/الحان/ترم اول/قانون ختام الصلاة (كيهك)/lyrics.png"
                     },
                     {
-                        id: "mord_engil_kiahk_elhad_eltani",
+                        id: "kiahk2_1",
                         title: "مرد انجيل قداس الاحد الثاني شهر كيهك",
                         badge: "كيهكي",
                         details: "مرد الإنجيل الخاص بالأحد الثاني من شهر كيهك المبارك.",
@@ -392,7 +656,7 @@
                         lyricsImg: "حضانه/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_elmilad",
+                        id: "engM_1",
                         title: "مرد انجيل قداس عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد الإنجيل الخاص بقداس عيد الميلاد المجيد.",
@@ -400,10 +664,10 @@
                         hasLyricsImg: true,
                         lyricsImg: "حضانه/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/lyrics.png"
                     }
-                ],
-                term2: [
+            ],
+            term2: [
                     {
-                        id: "mord_engil_elsoom_elkebeir",
+                        id: "engS_1",
                         title: "مرد انجيل قداس ايام (الصوم الكبير)",
                         badge: "صيامي",
                         details: "مرد الإنجيل الخاص بأيام الصوم الكبير المقدس.",
@@ -412,7 +676,7 @@
                         lyricsImg: "حضانه/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/lyrics.png"
                     },
                     {
-                        id: "mord_engil_alshaanin",
+                        id: "shaanin_1",
                         title: "مرد انجيل احد الشعانين",
                         badge: "شعانيني",
                         details: "مرد الإنجيل الخاص بأحد الشعانين.",
@@ -421,7 +685,7 @@
                         lyricsImg: "حضانه/الحان/ترم تاني/مرد انجيل احد الشعانين/lyrics.png"
                     },
                     {
-                        id: "mord_engil_elqiyama",
+                        id: "engQ_1",
                         title: "مرد انجيل عيد القيامه المجيد",
                         badge: "فرايحي",
                         details: "مرد الإنجيل الخاص بعيد القيامة المجيد والخماسين المقدسة.",
@@ -429,39 +693,39 @@
                         hasLyricsImg: true,
                         lyricsImg: "حضانه/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/lyrics.png"
                     }
-                ]
-            },
-            "أولى وتانية ابتدائي": {
-                term1: [
+            ]
+        },
+        "أولى وتانية ابتدائي": {
+            term1: [
                     {
-                        id: "pi_jin_misi_1_2",
+                        id: "pijin_2",
                         title: "بي جين ميسي",
-                        badge: "كيهكي",
-                        details: "لحن بي جين ميسي - أولى وتانية ابتدائي.",
+                        badge: "كيهكي / فرايحي",
+                        details: "بي جين ميسي - أولى وتانية ابتدائي.",
                         audio: "أولى وتانية ابتدائي/الحان/ترم اول/بي جين ميسي/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم اول/بي جين ميسي/lyrics.png"
                     },
                     {
-                        id: "qanoun_khetam_1_2",
+                        id: "qanoun_2",
                         title: "قانون ختام الصلاة (كيهك)",
                         badge: "كيهكي",
-                        details: "قانون ختام الصلاة - أولى وتانية ابتدائي.",
+                        details: "قانون ختام الصلاة (كيهك) - أولى وتانية ابتدائي.",
                         audio: "أولى وتانية ابتدائي/الحان/ترم اول/قانون ختام الصلاة (كيهك)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم اول/قانون ختام الصلاة (كيهك)/lyrics.png"
                     },
                     {
-                        id: "mord_engil_2nd_kiahk_1_2",
+                        id: "kiahk2_2",
                         title: "مرد انجيل قداس الاحد الثاني شهر كيهك",
                         badge: "كيهكي",
-                        details: "مرد الإنجيل الأحد الثاني شهر كيهك - أولى وتانية ابتدائي.",
+                        details: "مرد انجيل قداس الاحد الثاني شهر كيهك - أولى وتانية ابتدائي.",
                         audio: "أولى وتانية ابتدائي/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_milad_1_2",
+                        id: "engM_2",
                         title: "مرد انجيل قداس عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد انجيل قداس عيد الميلاد - أولى وتانية ابتدائي.",
@@ -470,7 +734,7 @@
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_mazmour_milad_1_2",
+                        id: "mazM_2",
                         title: "مرد مزمور عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد مزمور عيد الميلاد - أولى وتانية ابتدائي.",
@@ -479,16 +743,16 @@
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم اول/مرد مزمور عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_milad_1_2",
-                        title: "هيتنيات عيد الميلاد",
+                        id: "hitM_2",
+                        title: "هيتينيات عيد الميلاد",
                         badge: "فرايحي",
-                        details: "هيتنيات عيد الميلاد - أولى وتانية ابتدائي.",
+                        details: "هيتينيات عيد الميلاد - أولى وتانية ابتدائي.",
                         audio: "أولى وتانية ابتدائي/الحان/ترم اول/هيتنيات عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم اول/هيتنيات عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_kiahk_1_2",
+                        id: "hitK_2",
                         title: "هيتينيات شهر كيهك",
                         badge: "كيهكي",
                         details: "هيتينيات شهر كيهك - أولى وتانية ابتدائي.",
@@ -496,10 +760,10 @@
                         hasLyricsImg: true,
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم اول/هيتينيات شهر كيهك/lyrics.png"
                     }
-                ],
-                term2: [
+            ],
+            term2: [
                     {
-                        id: "lelolia_1_2",
+                        id: "alleluia_2",
                         title: "الليوليا اي ايه اي",
                         badge: "فرايحي",
                         details: "الليوليا اي ايه اي - أولى وتانية ابتدائي.",
@@ -508,7 +772,7 @@
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم تاني/الليوليا اي ايه اي/lyrics.png"
                     },
                     {
-                        id: "mord_engil_shaanin_1_2",
+                        id: "shaanin_2",
                         title: "مرد انجيل احد الشعانين",
                         badge: "شعانيني",
                         details: "مرد انجيل احد الشعانين - أولى وتانية ابتدائي.",
@@ -517,7 +781,7 @@
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم تاني/مرد انجيل احد الشعانين/lyrics.png"
                     },
                     {
-                        id: "mord_engil_qiyama_1_2",
+                        id: "engQ_2",
                         title: "مرد انجيل عيد القيامه المجيد",
                         badge: "فرايحي",
                         details: "مرد انجيل عيد القيامه المجيد - أولى وتانية ابتدائي.",
@@ -526,329 +790,329 @@
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_soom_1_2",
+                        id: "engS_2",
                         title: "مرد انجيل قداس ايام (الصوم الكبير)",
                         badge: "صيامي",
-                        details: "مرد انجيل قداس ايام الصوم الكبير - أولى وتانية ابتدائي.",
+                        details: "مرد انجيل قداس ايام (الصوم الكبير) - أولى وتانية ابتدائي.",
                         audio: "أولى وتانية ابتدائي/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "أولى وتانية ابتدائي/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/lyrics.png"
                     }
-                ]
-            },
-            "تالته ورابعه": {
-                term1: [
+            ]
+        },
+        "تالته ورابعه": {
+            term1: [
                     {
-                        id: "pi_jin_misi_3_4",
+                        id: "pijin_3",
                         title: "بي جين ميسي",
-                        badge: "كيهكي",
-                        details: "بي جين ميسي - تالتة ورابعة.",
+                        badge: "كيهكي / فرايحي",
+                        details: "بي جين ميسي - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/بي جين ميسي/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/بي جين ميسي/lyrics.png"
                     },
                     {
-                        id: "qanoun_khetam_3_4",
+                        id: "qanoun_3",
                         title: "قانون ختام الصلاة (كيهك)",
                         badge: "كيهكي",
-                        details: "قانون ختام الصلاة (كيهك) - تالتة ورابعة.",
+                        details: "قانون ختام الصلاة (كيهك) - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/قانون ختام الصلاة (كيهك)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/قانون ختام الصلاة (كيهك)/lyrics.png"
                     },
                     {
-                        id: "mohayar_milad_3_4",
+                        id: "moheir_3",
                         title: "محير عيد الميلاد",
                         badge: "فرايحي",
-                        details: "محير عيد الميلاد - تالتة ورابعة.",
+                        details: "محير عيد الميلاد - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/محير عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/محير عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_milad_3_4",
+                        id: "ebraxM_3",
                         title: "مرد الابراكسيس عيد الميلاد",
                         badge: "فرايحي",
-                        details: "مرد الابراكسيس عيد الميلاد - تالتة ورابعة.",
+                        details: "مرد الابراكسيس عيد الميلاد - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/مرد الابراكسيس عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/مرد الابراكسيس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_2nd_kiahk_3_4",
+                        id: "kiahk2_3",
                         title: "مرد انجيل قداس الاحد الثاني شهر كيهك",
                         badge: "كيهكي",
-                        details: "مرد انجيل قداس الاحد الثاني شهر كيهك - تالتة ورابعة.",
+                        details: "مرد انجيل قداس الاحد الثاني شهر كيهك - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_milad_3_4",
+                        id: "engM_3",
                         title: "مرد انجيل قداس عيد الميلاد",
                         badge: "فرايحي",
-                        details: "مرد انجيل قداس عيد الميلاد - تالتة ورابعة.",
+                        details: "مرد انجيل قداس عيد الميلاد - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_mazmour_milad_3_4",
+                        id: "mazM_3",
                         title: "مرد مزمور عيد الميلاد",
                         badge: "فرايحي",
-                        details: "مرد مزمور عيد الميلاد - تالتة ورابعة.",
+                        details: "مرد مزمور عيد الميلاد - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/مرد مزمور عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/مرد مزمور عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_milad_3_4",
-                        title: "هيتنيات عيد الميلاد",
+                        id: "hitM_3",
+                        title: "هيتينيات عيد الميلاد",
                         badge: "فرايحي",
-                        details: "هيتنيات عيد الميلاد - تالتة ورابعة.",
+                        details: "هيتينيات عيد الميلاد - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/هيتنيات عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/هيتنيات عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_kiahk_3_4",
+                        id: "hitK_3",
                         title: "هيتينيات شهر كيهك",
                         badge: "كيهكي",
-                        details: "هيتينيات شهر كيهك - تالتة ورابعة.",
+                        details: "هيتينيات شهر كيهك - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم اول/هيتينيات شهر كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم اول/هيتينيات شهر كيهك/lyrics.png"
                     }
-                ],
-                term2: [
+            ],
+            term2: [
                     {
-                        id: "lelolia_3_4",
+                        id: "alleluia_3",
                         title: "الليوليا اي ايه اي",
                         badge: "فرايحي",
-                        details: "الليوليا اي ايه اي - تالتة ورابعة.",
+                        details: "الليوليا اي ايه اي - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم تاني/الليوليا اي ايه اي/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم تاني/الليوليا اي ايه اي/lyrics.png"
                     },
                     {
-                        id: "ton_sina_3_4",
+                        id: "tonSina_3",
                         title: "طون سينا",
                         badge: "صيامي",
-                        details: "طون سينا - تالتة ورابعة.",
+                        details: "طون سينا - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم تاني/طون سينا/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم تاني/طون سينا/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_qiyama_3_4",
+                        id: "ebraxQ_3",
                         title: "مرد ابراكسيس عيد القيامه المجيد",
                         badge: "فرايحي",
-                        details: "مرد ابراكسيس عيد القيامه المجيد - تالتة ورابعة.",
+                        details: "مرد ابراكسيس عيد القيامه المجيد - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم تاني/مرد ابراكسيس عيد القيامه المجيد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم تاني/مرد ابراكسيس عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_shaanin_3_4",
+                        id: "shaanin_3",
                         title: "مرد انجيل احد الشعانين",
                         badge: "شعانيني",
-                        details: "مرد انجيل احد الشعانين - تالتة ورابعة.",
+                        details: "مرد انجيل احد الشعانين - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم تاني/مرد انجيل احد الشعانين/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم تاني/مرد انجيل احد الشعانين/lyrics.png"
                     },
                     {
-                        id: "mord_engil_qiyama_3_4",
+                        id: "engQ_3",
                         title: "مرد انجيل عيد القيامه المجيد",
                         badge: "فرايحي",
-                        details: "مرد انجيل عيد القيامه المجيد - تالتة ورابعة.",
+                        details: "مرد انجيل عيد القيامه المجيد - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_soom_3_4",
+                        id: "engS_3",
                         title: "مرد انجيل قداس ايام (الصوم الكبير)",
                         badge: "صيامي",
-                        details: "مرد انجيل قداس ايام الصوم الكبير - تالتة ورابعة.",
+                        details: "مرد انجيل قداس ايام (الصوم الكبير) - تالتة ورابعة ابتدائي.",
                         audio: "تالته ورابعه/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "تالته ورابعه/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/lyrics.png"
                     }
-                ]
-            },
-            "خامسه وسادسه": {
-                term1: [
+            ]
+        },
+        "خامسه وسادسه": {
+            term1: [
                     {
-                        id: "epartinos_5_6",
+                        id: "epar_4",
                         title: "ايبارثينوس",
                         badge: "كيهكي",
-                        details: "ايبارثينوس - خامسة وسادسة.",
+                        details: "ايبارثينوس - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/ايبارثينوس/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/ايبارثينوس/lyrics.png"
                     },
                     {
-                        id: "pi_jin_misi_5_6",
+                        id: "pijin_4",
                         title: "بي جين ميسي",
-                        badge: "كيهكي",
-                        details: "بي جين ميسي - خامسة وسادسة.",
+                        badge: "كيهكي / فرايحي",
+                        details: "بي جين ميسي - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/بي جين ميسي/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/بي جين ميسي/lyrics.png"
                     },
                     {
-                        id: "qanoun_khetam_5_6",
+                        id: "qanoun_4",
                         title: "قانون ختام الصلاة (كيهك)",
                         badge: "كيهكي",
-                        details: "قانون ختام الصلاة (كيهك) - خامسة وسادسة.",
+                        details: "قانون ختام الصلاة (كيهك) - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/قانون ختام الصلاة (كيهك)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/قانون ختام الصلاة (كيهك)/lyrics.png"
                     },
                     {
-                        id: "mohayar_milad_5_6",
+                        id: "moheir_4",
                         title: "محير عيد الميلاد",
                         badge: "فرايحي",
-                        details: "محير عيد الميلاد - خامسة وسادسة.",
+                        details: "محير عيد الميلاد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/محير عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/محير عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_milad_5_6",
+                        id: "ebraxM_4",
                         title: "مرد الابراكسيس عيد الميلاد",
                         badge: "فرايحي",
-                        details: "مرد الابراكسيس عيد الميلاد - خامسة وسادسة.",
+                        details: "مرد الابراكسيس عيد الميلاد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/مرد الابراكسيس عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/مرد الابراكسيس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_3rd_kiahk_5_6",
+                        id: "kiahk3_4",
                         title: "مرد انجيل قداس الاحد (الثالث) كيهك",
                         badge: "كيهكي",
-                        details: "مرد انجيل قداس الاحد الثالث كيهك - خامسة وسادسة.",
+                        details: "مرد انجيل قداس الاحد (الثالث) كيهك - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/مرد انجيل قداس الاحد (الثالث) كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/مرد انجيل قداس الاحد (الثالث) كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_2nd_kiahk_5_6",
+                        id: "kiahk2_4",
                         title: "مرد انجيل قداس الاحد الثاني شهر كيهك",
                         badge: "كيهكي",
-                        details: "مرد انجيل قداس الاحد الثاني شهر كيهك - خامسة وسادسة.",
+                        details: "مرد انجيل قداس الاحد الثاني شهر كيهك - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_milad_5_6",
+                        id: "engM_4",
                         title: "مرد انجيل قداس عيد الميلاد",
                         badge: "فرايحي",
-                        details: "مرد انجيل قداس عيد الميلاد - خامسة وسادسة.",
+                        details: "مرد انجيل قداس عيد الميلاد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_mazmour_milad_5_6",
+                        id: "mazM_4",
                         title: "مرد مزمور عيد الميلاد",
                         badge: "فرايحي",
-                        details: "مرد مزمور عيد الميلاد - خامسة وسادسة.",
+                        details: "مرد مزمور عيد الميلاد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/مرد مزمور عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/مرد مزمور عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_milad_5_6",
-                        title: "هيتنيات عيد الميلاد",
+                        id: "hitM_4",
+                        title: "هيتينيات عيد الميلاد",
                         badge: "فرايحي",
-                        details: "هيتنيات عيد الميلاد - خامسة وسادسة.",
+                        details: "هيتينيات عيد الميلاد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/هيتنيات عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/هيتنيات عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_kiahk_5_6",
+                        id: "hitK_4",
                         title: "هيتينيات شهر كيهك",
                         badge: "كيهكي",
-                        details: "هيتينيات شهر كيهك - خامسة وسادسة.",
+                        details: "هيتينيات شهر كيهك - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم اول/هيتينيات شهر كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم اول/هيتينيات شهر كيهك/lyrics.png"
                     }
-                ],
-                term2: [
+            ],
+            term2: [
                     {
-                        id: "lelolia_5_6",
+                        id: "alleluia_4",
                         title: "الليوليا اي ايه اي",
                         badge: "فرايحي",
-                        details: "الليوليا اي ايه اي - خامسة وسادسة.",
+                        details: "الليوليا اي ايه اي - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم تاني/الليوليا اي ايه اي/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم تاني/الليوليا اي ايه اي/lyrics.png"
                     },
                     {
-                        id: "doxology_milad_5_6",
+                        id: "doxM_4",
                         title: "ذكصولوجية عيد الميلاد",
                         badge: "فرايحي",
-                        details: "ذكصولوجية عيد الميلاد - خامسة وسادسة.",
+                        details: "ذكصولوجية عيد الميلاد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم تاني/ذوكسولوجية عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم تاني/ذوكسولوجية عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "ton_sina_5_6",
+                        id: "tonSina_4",
                         title: "طون سينا",
                         badge: "صيامي",
-                        details: "طون سينا - خامسة وسادسة.",
+                        details: "طون سينا - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم تاني/طون سينا/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم تاني/طون سينا/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_qiyama_5_6",
+                        id: "ebraxQ_4",
                         title: "مرد ابراكسيس عيد القيامه المجيد",
                         badge: "فرايحي",
-                        details: "مرد ابراكسيس عيد القيامه المجيد - خامسة وسادسة.",
+                        details: "مرد ابراكسيس عيد القيامه المجيد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم تاني/مرد ابراكسيس عيد القيامه المجيد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم تاني/مرد ابراكسيس عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_shaanin_5_6",
+                        id: "shaanin_4",
                         title: "مرد انجيل احد الشعانين",
                         badge: "شعانيني",
-                        details: "مرد انجيل احد الشعانين - خامسة وسادسة.",
+                        details: "مرد انجيل احد الشعانين - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم تاني/مرد انجيل احد الشعانين/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم تاني/مرد انجيل احد الشعانين/lyrics.png"
                     },
                     {
-                        id: "mord_engil_qiyama_5_6",
+                        id: "engQ_4",
                         title: "مرد انجيل عيد القيامه المجيد",
                         badge: "فرايحي",
-                        details: "مرد انجيل عيد القيامه المجيد - خامسة وسادسة.",
+                        details: "مرد انجيل عيد القيامه المجيد - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_soom_5_6",
+                        id: "engS_4",
                         title: "مرد انجيل قداس ايام (الصوم الكبير)",
                         badge: "صيامي",
-                        details: "مرد انجيل قداس ايام الصوم الكبير - خامسة وسادسة.",
+                        details: "مرد انجيل قداس ايام (الصوم الكبير) - الخامس والسادس الابتدائي.",
                         audio: "خامسه وسادسه/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "خامسه وسادسه/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/lyrics.png"
                     }
-                ]
-            },
-            "اعدادي": {
-                term1: [
+            ]
+        },
+        "اعدادي": {
+            term1: [
                     {
-                        id: "epartinos_prep",
+                        id: "epar_5",
                         title: "ايبارثينوس",
                         badge: "كيهكي",
                         details: "ايبارثينوس - المرحلة الإعدادية.",
@@ -857,16 +1121,16 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/ايبارثينوس/lyrics.png"
                     },
                     {
-                        id: "pi_jin_misi_prep",
+                        id: "pijin_5",
                         title: "بي جين ميسي",
-                        badge: "كيهكي",
+                        badge: "كيهكي / فرايحي",
                         details: "بي جين ميسي - المرحلة الإعدادية.",
                         audio: "اعدادي/الحان/ترم اول/بي جين ميسي/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "اعدادي/الحان/ترم اول/بي جين ميسي/lyrics.png"
                     },
                     {
-                        id: "doxology_kiahk_prep",
+                        id: "doxK_5",
                         title: "ذكصولوجية شهر كيهك",
                         badge: "كيهكي",
                         details: "ذكصولوجية شهر كيهك - المرحلة الإعدادية.",
@@ -875,7 +1139,7 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/ذوكصولوجية شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "qanoun_khetam_prep",
+                        id: "qanoun_5",
                         title: "قانون ختام الصلاة (كيهك)",
                         badge: "كيهكي",
                         details: "قانون ختام الصلاة (كيهك) - المرحلة الإعدادية.",
@@ -884,7 +1148,7 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/قانون ختام الصلاة (كيهك)/lyrics.png"
                     },
                     {
-                        id: "mohayar_milad_prep",
+                        id: "moheir_5",
                         title: "محير عيد الميلاد",
                         badge: "فرايحي",
                         details: "محير عيد الميلاد - المرحلة الإعدادية.",
@@ -893,7 +1157,7 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/محير عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_milad_prep",
+                        id: "ebraxM_5",
                         title: "مرد الابراكسيس عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد الابراكسيس عيد الميلاد - المرحلة الإعدادية.",
@@ -902,16 +1166,16 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/مرد الابراكسيس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_3rd_kiahk_prep",
+                        id: "kiahk3_5",
                         title: "مرد انجيل قداس الاحد (الثالث) كيهك",
                         badge: "كيهكي",
-                        details: "مرد انجيل قداس الاحد الثالث كيهك - المرحلة الإعدادية.",
+                        details: "مرد انجيل قداس الاحد (الثالث) كيهك - المرحلة الإعدادية.",
                         audio: "اعدادي/الحان/ترم اول/مرد انجيل قداس الاحد (الثالث) كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "اعدادي/الحان/ترم اول/مرد انجيل قداس الاحد (الثالث) كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_2nd_kiahk_prep",
+                        id: "kiahk2_5",
                         title: "مرد انجيل قداس الاحد الثاني شهر كيهك",
                         badge: "كيهكي",
                         details: "مرد انجيل قداس الاحد الثاني شهر كيهك - المرحلة الإعدادية.",
@@ -920,7 +1184,7 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_milad_prep",
+                        id: "engM_5",
                         title: "مرد انجيل قداس عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد انجيل قداس عيد الميلاد - المرحلة الإعدادية.",
@@ -929,7 +1193,7 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_mazmour_milad_prep",
+                        id: "mazM_5",
                         title: "مرد مزمور عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد مزمور عيد الميلاد - المرحلة الإعدادية.",
@@ -938,16 +1202,16 @@
                         lyricsImg: "اعدادي/الحان/ترم اول/مرد مزمور عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_milad_prep",
-                        title: "هيتنيات عيد الميلاد",
+                        id: "hitM_5",
+                        title: "هيتينيات عيد الميلاد",
                         badge: "فرايحي",
-                        details: "هيتنيات عيد الميلاد - المرحلة الإعدادية.",
+                        details: "هيتينيات عيد الميلاد - المرحلة الإعدادية.",
                         audio: "اعدادي/الحان/ترم اول/هيتنيات عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "اعدادي/الحان/ترم اول/هيتنيات عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_kiahk_prep",
+                        id: "hitK_5",
                         title: "هيتينيات شهر كيهك",
                         badge: "كيهكي",
                         details: "هيتينيات شهر كيهك - المرحلة الإعدادية.",
@@ -955,10 +1219,10 @@
                         hasLyricsImg: true,
                         lyricsImg: "اعدادي/الحان/ترم اول/هيتينيات شهر كيهك/lyrics.png"
                     }
-                ],
-                term2: [
+            ],
+            term2: [
                     {
-                        id: "lelolia_prep",
+                        id: "alleluia_5",
                         title: "الليوليا اي ايه اي",
                         badge: "فرايحي",
                         details: "الليوليا اي ايه اي - المرحلة الإعدادية.",
@@ -967,7 +1231,7 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/الليوليا اي ايه اي/lyrics.png"
                     },
                     {
-                        id: "christos_anisti_prep",
+                        id: "kristos_5",
                         title: "خريستوس انيستي",
                         badge: "فرايحي",
                         details: "خريستوس انيستي - المرحلة الإعدادية.",
@@ -976,7 +1240,7 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/خريستوس انيستي/lyrics.png"
                     },
                     {
-                        id: "doxology_soom_prep",
+                        id: "doxS_5",
                         title: "ذكصولوجية الصوم الكبير",
                         badge: "صيامي",
                         details: "ذكصولوجية الصوم الكبير - المرحلة الإعدادية.",
@@ -985,7 +1249,7 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/ذكصولوجية الصوم الكبير/lyrics.png"
                     },
                     {
-                        id: "ton_sina_prep",
+                        id: "tonSina_5",
                         title: "طون سينا",
                         badge: "صيامي",
                         details: "طون سينا - المرحلة الإعدادية.",
@@ -994,7 +1258,7 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/طون سينا/lyrics.png"
                     },
                     {
-                        id: "key_iberto_prep",
+                        id: "eperto_5",
                         title: "كي ايبرتو",
                         badge: "صيامي",
                         details: "كي ايبرتو - المرحلة الإعدادية.",
@@ -1003,7 +1267,7 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/كي ايبرتو/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_qiyama_prep",
+                        id: "ebraxQ_5",
                         title: "مرد ابراكسيس عيد القيامه المجيد",
                         badge: "فرايحي",
                         details: "مرد ابراكسيس عيد القيامه المجيد - المرحلة الإعدادية.",
@@ -1012,7 +1276,7 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/مرد ابراكسيس عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_shaanin_prep",
+                        id: "shaanin_5",
                         title: "مرد انجيل احد الشعانين",
                         badge: "شعانيني",
                         details: "مرد انجيل احد الشعانين - المرحلة الإعدادية.",
@@ -1021,7 +1285,7 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/مرد انجيل احد الشعانين/lyrics.png"
                     },
                     {
-                        id: "mord_engil_qiyama_prep",
+                        id: "engQ_5",
                         title: "مرد انجيل عيد القيامه المجيد",
                         badge: "فرايحي",
                         details: "مرد انجيل عيد القيامه المجيد - المرحلة الإعدادية.",
@@ -1030,20 +1294,20 @@
                         lyricsImg: "اعدادي/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_soom_prep",
+                        id: "engS_5",
                         title: "مرد انجيل قداس ايام (الصوم الكبير)",
                         badge: "صيامي",
-                        details: "مرد انجيل قداس ايام الصوم الكبير - المرحلة الإعدادية.",
+                        details: "مرد انجيل قداس ايام (الصوم الكبير) - المرحلة الإعدادية.",
                         audio: "اعدادي/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "اعدادي/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/lyrics.png"
                     }
-                ]
-            },
-            "ثانوي": {
-                term1: [
+            ]
+        },
+        "ثانوي": {
+            term1: [
                     {
-                        id: "epartinos_sec",
+                        id: "epar_6",
                         title: "ايبارثينوس",
                         badge: "كيهكي",
                         details: "ايبارثينوس - المرحلة الثانوية.",
@@ -1052,16 +1316,16 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/ايبارثينوس/lyrics.png"
                     },
                     {
-                        id: "pi_jin_misi_sec",
+                        id: "pijin_6",
                         title: "بي جين ميسي",
-                        badge: "كيهكي",
+                        badge: "كيهكي / فرايحي",
                         details: "بي جين ميسي - المرحلة الثانوية.",
                         audio: "ثانوي/الحان/ترم اول/بي جين ميسي/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "ثانوي/الحان/ترم اول/بي جين ميسي/lyrics.png"
                     },
                     {
-                        id: "doxology_kiahk_sec",
+                        id: "doxK_6",
                         title: "ذكصولوجية شهر كيهك",
                         badge: "كيهكي",
                         details: "ذكصولوجية شهر كيهك - المرحلة الثانوية.",
@@ -1070,7 +1334,7 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/ذوكصولوجية شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "qanoun_khetam_sec",
+                        id: "qanoun_6",
                         title: "قانون ختام الصلاة (كيهك)",
                         badge: "كيهكي",
                         details: "قانون ختام الصلاة (كيهك) - المرحلة الثانوية.",
@@ -1079,7 +1343,7 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/قانون ختام الصلاة (كيهك)/lyrics.png"
                     },
                     {
-                        id: "mohayar_milad_sec",
+                        id: "moheir_6",
                         title: "محير عيد الميلاد",
                         badge: "فرايحي",
                         details: "محير عيد الميلاد - المرحلة الثانوية.",
@@ -1088,7 +1352,7 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/محير عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_milad_sec",
+                        id: "ebraxM_6",
                         title: "مرد الابراكسيس عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد الابراكسيس عيد الميلاد - المرحلة الثانوية.",
@@ -1097,16 +1361,16 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/مرد الابراكسيس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_3rd_kiahk_sec",
+                        id: "kiahk3_6",
                         title: "مرد انجيل قداس الاحد (الثالث) كيهك",
                         badge: "كيهكي",
-                        details: "مرد انجيل قداس الاحد الثالث كيهك - المرحلة الثانوية.",
+                        details: "مرد انجيل قداس الاحد (الثالث) كيهك - المرحلة الثانوية.",
                         audio: "ثانوي/الحان/ترم اول/مرد انجيل قداس الاحد (الثالث) كيهك/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "ثانوي/الحان/ترم اول/مرد انجيل قداس الاحد (الثالث) كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_2nd_kiahk_sec",
+                        id: "kiahk2_6",
                         title: "مرد انجيل قداس الاحد الثاني شهر كيهك",
                         badge: "كيهكي",
                         details: "مرد انجيل قداس الاحد الثاني شهر كيهك - المرحلة الثانوية.",
@@ -1115,7 +1379,7 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/مرد انجيل قداس الاحد الثاني شهر كيهك/lyrics.png"
                     },
                     {
-                        id: "mord_engil_milad_sec",
+                        id: "engM_6",
                         title: "مرد انجيل قداس عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد انجيل قداس عيد الميلاد - المرحلة الثانوية.",
@@ -1124,7 +1388,7 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/مرد انجيل قداس عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "mord_mazmour_milad_sec",
+                        id: "mazM_6",
                         title: "مرد مزمور عيد الميلاد",
                         badge: "فرايحي",
                         details: "مرد مزمور عيد الميلاد - المرحلة الثانوية.",
@@ -1133,16 +1397,16 @@
                         lyricsImg: "ثانوي/الحان/ترم اول/مرد مزمور عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_milad_sec",
-                        title: "هيتنيات عيد الميلاد",
+                        id: "hitM_6",
+                        title: "هيتينيات عيد الميلاد",
                         badge: "فرايحي",
-                        details: "هيتنيات عيد الميلاد - المرحلة الثانوية.",
+                        details: "هيتينيات عيد الميلاد - المرحلة الثانوية.",
                         audio: "ثانوي/الحان/ترم اول/هيتنيات عيد الميلاد/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "ثانوي/الحان/ترم اول/هيتنيات عيد الميلاد/lyrics.png"
                     },
                     {
-                        id: "hetaynat_kiahk_sec",
+                        id: "hitK_6",
                         title: "هيتينيات شهر كيهك",
                         badge: "كيهكي",
                         details: "هيتينيات شهر كيهك - المرحلة الثانوية.",
@@ -1150,10 +1414,10 @@
                         hasLyricsImg: true,
                         lyricsImg: "ثانوي/الحان/ترم اول/هيتينيات شهر كيهك/lyrics.png"
                     }
-                ],
-                term2: [
+            ],
+            term2: [
                     {
-                        id: "arba_alqous_sec",
+                        id: "arba3_6",
                         title: "ارباع الناقوس عيد القيامه",
                         badge: "فرايحي",
                         details: "ارباع الناقوس عيد القيامه - المرحلة الثانوية.",
@@ -1162,7 +1426,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/ارباع الناقوس عيد القيامه/lyrics.png"
                     },
                     {
-                        id: "lelolia_sec",
+                        id: "alleluia_6",
                         title: "الليوليا اي ايه اي",
                         badge: "فرايحي",
                         details: "الليوليا اي ايه اي - المرحلة الثانوية.",
@@ -1171,7 +1435,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/الليوليا اي ايه اي/lyrics.png"
                     },
                     {
-                        id: "christos_anisti_sec",
+                        id: "kristos_6",
                         title: "خريستوس انيستي",
                         badge: "فرايحي",
                         details: "خريستوس انيستي - المرحلة الثانوية.",
@@ -1180,7 +1444,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/خريستوس انيستي/lyrics.png"
                     },
                     {
-                        id: "doxology_soom_sec",
+                        id: "doxS_6",
                         title: "ذكصولوجية الصوم الكبير",
                         badge: "صيامي",
                         details: "ذكصولوجية الصوم الكبير - المرحلة الثانوية.",
@@ -1189,7 +1453,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/ذكصولوجية الصوم الكبير/lyrics.png"
                     },
                     {
-                        id: "ton_sina_sec",
+                        id: "tonSina_6",
                         title: "طون سينا",
                         badge: "صيامي",
                         details: "طون سينا - المرحلة الثانوية.",
@@ -1198,7 +1462,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/طون سينا/lyrics.png"
                     },
                     {
-                        id: "key_iberto_sec",
+                        id: "eperto_6",
                         title: "كي ايبرتو",
                         badge: "صيامي",
                         details: "كي ايبرتو - المرحلة الثانوية.",
@@ -1207,7 +1471,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/كي ايبرتو/lyrics.png"
                     },
                     {
-                        id: "mord_praxis_qiyama_sec",
+                        id: "ebraxQ_6",
                         title: "مرد ابراكسيس عيد القيامه المجيد",
                         badge: "فرايحي",
                         details: "مرد ابراكسيس عيد القيامه المجيد - المرحلة الثانوية.",
@@ -1216,7 +1480,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/مرد ابراكسيس عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_shaanin_sec",
+                        id: "shaanin_6",
                         title: "مرد انجيل احد الشعانين",
                         badge: "شعانيني",
                         details: "مرد انجيل احد الشعانين - المرحلة الثانوية.",
@@ -1225,7 +1489,7 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/مرد انجيل احد الشعانين/lyrics.png"
                     },
                     {
-                        id: "mord_engil_qiyama_sec",
+                        id: "engQ_6",
                         title: "مرد انجيل عيد القيامه المجيد",
                         badge: "فرايحي",
                         details: "مرد انجيل عيد القيامه المجيد - المرحلة الثانوية.",
@@ -1234,231 +1498,207 @@
                         lyricsImg: "ثانوي/الحان/ترم تاني/مرد انجيل عيد القيامه المجيد/lyrics.png"
                     },
                     {
-                        id: "mord_engil_soom_sec",
+                        id: "engS_6",
                         title: "مرد انجيل قداس ايام (الصوم الكبير)",
                         badge: "صيامي",
-                        details: "مرد انجيل قداس ايام الصوم الكبير - المرحلة الثانوية.",
+                        details: "مرد انجيل قداس ايام (الصوم الكبير) - المرحلة الثانوية.",
                         audio: "ثانوي/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/audio.mp3",
                         hasLyricsImg: true,
                         lyricsImg: "ثانوي/الحان/ترم تاني/مرد انجيل قداس ايام (الصوم الكبير)/lyrics.png"
                     }
-                ]
-            },
-            "جامعيين وخريجين": { term1: [], term2: [] }
+            ]
         },
-        taqs: { 
-            "حضانه": "حضانه/طقس/lesson.pdf", 
-            "أولى وتانية ابتدائي": "أولى وتانية ابتدائي/طقس/lesson.pdf", 
-            "تالته ورابعه": "تالته ورابعه/طقس/lesson.pdf", 
-            "خامسه وسادسه": "خامسه وسادسه/طقس/lesson.pdf", 
-            "اعدادي": "اعدادي/طقس/lesson.pdf", 
-            "ثانوي": "ثانوي/طقس/lesson.pdf", 
-            "جامعيين وخريجين": "جامعيين وخريجين/طقس/lesson.pdf" 
-        },
-        qebti: { 
-            "حضانه": "حضانه/قبطي/lesson.pdf", 
-            "أولى وتانية ابتدائي": "أولى وتانية ابتدائي/قبطي/lesson.pdf", 
-            "تالته ورابعه": "تالته ورابعه/قبطي/lesson.pdf", 
-            "خامسه وسادسه": "خامسه وسادسه/قبطي/lesson.pdf", 
-            "اعدادي": "اعدادي/قبطي/lesson.pdf", 
-            "ثانوي": "ثانوي/قبطي/lesson.pdf", 
-            "جامعيين وخريجين": "جامعيين وخريجين/قبطي/lesson.pdf" 
+        "جامعيين وخريجين": {
+            term1: [],
+            term2: []
         }
-    };
-
-    let currentModule = '', currentStage = 'حضانه', currentTerm = 'term1', currentModuleText = '';
-
-    window.addEventListener('load', () => {
-        history.replaceState({ screen: 'home' }, '');
-    });
-
-    function navigateTo(stateData) {
-        history.pushState(stateData, '');
-        renderScreen(stateData);
+    },
+    taqs: {
+        "حضانه": "حضانه/طقس/lesson.pdf",
+        "أولى وتانية ابتدائي": "أولى وتانية ابتدائي/طقس/lesson.pdf",
+        "تالته ورابعه": "تالته ورابعه/طقس/lesson.pdf",
+        "خامسه وسادسه": "خامسه وسادسه/طقس/lesson.pdf",
+        "اعدادي": "اعدادي/طقس/lesson.pdf",
+        "ثانوي": "ثانوي/طقس/lesson.pdf",
+        "جامعيين وخريجين": "جامعيين وخريجين/طقس/lesson.pdf"
+    },
+    qebti: {
+        "حضانه": "حضانه/قبطي/lesson.pdf",
+        "أولى وتانية ابتدائي": "أولى وتانية ابتدائي/قبطي/lesson.pdf",
+        "تالته ورابعه": "تالته ورابعه/قبطي/lesson.pdf",
+        "خامسه وسادسه": "خامسه وسادسه/قبطي/lesson.pdf",
+        "اعدادي": "اعدادي/قبطي/lesson.pdf",
+        "ثانوي": "ثانوي/قبطي/lesson.pdf",
+        "جامعيين وخريجين": "جامعيين وخريجين/قبطي/lesson.pdf"
     }
+};
 
-    function renderScreen(state) {
-        if (!state || state.screen === 'home') {
-            document.getElementById('homeScreen').style.display = 'block';
-            document.getElementById('contentScreen').style.display = 'none';
-            document.getElementById('backBtn').style.display = 'none';
-        } 
-        else if (state.screen === 'stages') {
-            document.getElementById('homeScreen').style.display = 'none';
-            document.getElementById('contentScreen').style.display = 'block';
-            
-            if (window.innerWidth <= 768) {
-                document.getElementById('stagesSidebar').style.display = 'flex';
-                document.getElementById('contentMainArea').style.display = 'none';
-                document.getElementById('backBtn').style.display = 'flex';
-            } else {
-                document.getElementById('stagesSidebar').style.display = 'flex';
-                document.getElementById('contentMainArea').style.display = 'block';
-                document.getElementById('backBtn').style.display = 'flex';
-            }
-        } 
-        else if (state.screen === 'hymns') {
-            document.getElementById('homeScreen').style.display = 'none';
-            document.getElementById('contentScreen').style.display = 'block';
-            
-            if (window.innerWidth <= 768) {
-                document.getElementById('stagesSidebar').style.display = 'none';
-                document.getElementById('contentMainArea').style.display = 'block';
-                document.getElementById('backBtn').style.display = 'none';
-            } else {
-                document.getElementById('stagesSidebar').style.display = 'flex';
-                document.getElementById('contentMainArea').style.display = 'block';
-                document.getElementById('backBtn').style.display = 'flex';
-            }
-        }
+const stageNames = {
+    "حضانه": "مرحلة حضانة",
+    "أولى وتانية ابتدائي": "أولى وتانية ابتدائي",
+    "تالته ورابعه": "تالتة ورابعة ابتدائي",
+    "خامسه وسادسه": "الخامس والسادس الابتدائي",
+    "اعدادي": "المرحلة الإعدادية",
+    "ثانوي": "المرحلة الثانوية",
+    "جامعيين وخريجين": "الجامعيين وخريجين"
+};
+
+const TERM_TEXT = { term1: ' - الترم الأول', term2: ' - الترم الثاني' };
+let currentModule = '', currentModuleText = '', currentStage = 'حضانه', currentTerm = 'term1';
+const $ = id => document.getElementById(id);
+
+window.addEventListener('load', () => {
+    history.replaceState({ screen: 'home' }, '');
+});
+
+function navigateTo(stateData) {
+    history.pushState(stateData, '');
+    renderScreen(stateData);
+}
+
+function renderScreen(state) {
+    const mobile = window.innerWidth <= 768;
+    const s = state && state.screen;
+    if (!s || s === 'home') {
+        $('homeScreen').style.display = 'block';
+        $('contentScreen').style.display = 'none';
+        $('backBtn').style.display = 'none';
+        return;
     }
+    $('homeScreen').style.display = 'none';
+    $('contentScreen').style.display = 'block';
+    if (s === 'stages') {
+        $('stagesSidebar').style.display = 'flex';
+        $('contentMainArea').style.display = mobile ? 'none' : 'block';
+        $('backBtn').style.display = 'flex';
+    } else if (s === 'hymns') {
+        $('stagesSidebar').style.display = mobile ? 'none' : 'flex';
+        $('contentMainArea').style.display = 'block';
+        $('backBtn').style.display = mobile ? 'none' : 'flex';
+    }
+}
 
-    window.addEventListener('popstate', (event) => {
-        if (event.state) {
-            renderScreen(event.state);
+window.addEventListener('popstate', (event) => {
+    renderScreen(event.state || { screen: 'home' });
+});
+
+function openContentScreen(m, t) {
+    currentModule = m; currentModuleText = t;
+    $('termSelector').style.display = (m === 'alhan') ? 'flex' : 'none';
+    loadData();
+    navigateTo({ screen: 'stages', module: m, moduleText: t });
+}
+
+function switchStage(s, btn) {
+    document.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    currentStage = s;
+    loadData();
+    if (window.innerWidth <= 768) {
+        navigateTo({ screen: 'hymns', module: currentModule, stage: s });
+    }
+}
+
+function switchTerm(term) {
+    currentTerm = term;
+    $('term1Btn').classList.toggle('active', term === 'term1');
+    $('term2Btn').classList.toggle('active', term === 'term2');
+    loadData();
+}
+
+function loadData() {
+    const menuContainer = $('hymnsMenu');
+    const grid = $('cardsGrid');
+    menuContainer.innerHTML = ''; grid.innerHTML = '';
+    const soon = '<p style="text-align:center; padding:20px; color:var(--text-muted); font-size:18px;">جاري الرفع قريباً...</p>';
+    const stageName = stageNames[currentStage] || currentStage;
+
+    if (currentModule === 'alhan') {
+        $('mainSectionTitle').textContent = `منهج ${currentModuleText} - ${stageName}${TERM_TEXT[currentTerm]}`;
+        const stageData = schoolData.alhan[currentStage];
+        const list = (stageData && stageData[currentTerm]) || [];
+        if (list.length > 0) {
+            menuContainer.style.display = 'grid';
+            list.forEach((item) => {
+                const tab = document.createElement('div');
+                tab.className = 'hymn-menu-tab';
+                tab.innerHTML = '<i class="fa-solid fa-music" style="color: var(--purple-primary);"></i> <span></span>';
+                tab.querySelector('span').textContent = item.title;
+                tab.onclick = () => displaySingleHymn(item.id);
+                menuContainer.appendChild(tab);
+            });
         } else {
-            renderScreen({ screen: 'home' });
+            menuContainer.style.display = 'none';
+            grid.innerHTML = soon;
         }
-    });
-
-    function openContentScreen(m, t) {
-        currentModule = m; currentModuleText = t;
-        
-        const termSelector = document.getElementById('termSelector');
-        if (m === 'alhan') {
-            termSelector.style.display = 'flex';
-        } else {
-            termSelector.style.display = 'none';
-        }
-
-        loadData();
-        navigateTo({ screen: 'stages', module: m, moduleText: t });
-    }
-
-    function switchStage(s) {
-        const btns = document.querySelectorAll('.stage-btn');
-        btns.forEach(b => b.classList.remove('active'));
-        
-        if (event && event.currentTarget) {
-            event.currentTarget.classList.add('active');
-        }
-        
-        currentStage = s; 
-        loadData();
-
-        if (window.innerWidth <= 768) {
-            navigateTo({ screen: 'hymns', module: currentModule, stage: s });
-        }
-    }
-
-    function switchTerm(term) {
-        currentTerm = term;
-        document.getElementById('term1Btn').classList.toggle('active', term === 'term1');
-        document.getElementById('term2Btn').classList.toggle('active', term === 'term2');
-        loadData();
-    }
-
-    function loadData() {
-        const menuContainer = document.getElementById('hymnsMenu');
-        const grid = document.getElementById('cardsGrid');
-        menuContainer.innerHTML = ''; grid.innerHTML = ''; 
-
-        if (currentModule === 'alhan') {
-            const termText = currentTerm === 'term1' ? ' - الترم الأول' : ' - الترم الثاني';
-            document.getElementById('mainSectionTitle').textContent = `منهج ${currentModuleText} - ${currentStage}${termText}`;
-            
-            let list = [];
-            if (schoolData.alhan[currentStage] && schoolData.alhan[currentStage][currentTerm]) {
-                list = schoolData.alhan[currentStage][currentTerm];
-            }
-
-            if (list && list.length > 0) {
-                menuContainer.style.display = "grid";
-                list.forEach((item) => {
-                    menuContainer.innerHTML += `
-                        <div class="hymn-menu-tab" onclick="displaySingleHymn('${item.id}')">
-                            <i class="fa-solid fa-music" style="color: var(--purple-primary);"></i> 
-                            <span>${item.title}</span>
-                        </div>
-                    `;
-                });
-                grid.innerHTML = '';
-            } else {
-                menuContainer.style.display = "none";
-                grid.innerHTML = `<p style="text-align:center; padding:20px; color:var(--text-muted); font-size:18px;">جاري الرفع قريباً...</p>`;
-            }
-        } else {
-            document.getElementById('mainSectionTitle').textContent = `منهج ${currentModuleText} - ${currentStage}`;
-            menuContainer.style.display = "none";
-            
-            const pdfPath = schoolData[currentModule][currentStage];
-            if (pdfPath) {
-                grid.innerHTML = `
-                    <div class="hymn-card" style="text-align: center; padding: 40px;">
-                        <div class="hymn-title" style="margin-bottom: 15px;"><i class="fa-solid fa-file-pdf" style="color: var(--purple-primary);"></i> منهج ${currentModuleText} لمرحلة ${currentStage}</div>
-                        <div class="hymn-details" style="margin-bottom: 25px;">اضغط على الزر أدناه لفتح أو تحميل ملف الـ PDF الخاص بالمنهج.</div>
-                        <button class="view-lyrics-btn" onclick="window.open('${pdfPath}', '_blank')">
-                            <i class="fa-solid fa-file-pdf"></i> فتح ملف المنهج (PDF)
-                        </button>
-                    </div>
-                `;
-            } else {
-                grid.innerHTML = `<p style="text-align:center; padding:20px; color:var(--text-muted); font-size:18px;">جاري الرفع قريباً...</p>`;
-            }
-        }
-    }
-
-    function displaySingleHymn(hymnId) {
-        const menuContainer = document.getElementById('hymnsMenu');
-        const grid = document.getElementById('cardsGrid');
-        
-        menuContainer.style.display = "none";
-        grid.innerHTML = ''; 
-
-        let list = schoolData.alhan[currentStage][currentTerm];
-        const item = list.find(h => h.id === hymnId);
-
-        if(item) {
+    } else {
+        $('mainSectionTitle').textContent = `منهج ${currentModuleText} - ${stageName}`;
+        menuContainer.style.display = 'none';
+        const pdfPath = schoolData[currentModule][currentStage];
+        if (pdfPath) {
             grid.innerHTML = `
-                <div>
-                    <button class="back-to-list-btn" onclick="loadData()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة الألحان</button>
-                    <div class="hymn-card">
-                        <div class="hymn-title">${item.title}</div>
-                        <div class="hymn-details">${item.details}</div>
-                        <div class="audio-wrapper">
-                            <audio controls><source src="${item.audio}" type="audio/mpeg"></audio>
-                        </div>
-                        ${item.hasLyricsImg ? `<button class="view-lyrics-btn" onclick="openLyrics('${item.lyricsImg}')"><i class="fa-solid fa-image"></i> فتح صورة الكلمات الأصلية</button>` : ''}
-                    </div>
+                <div class="hymn-card" style="text-align: center; padding: 40px;">
+                    <div class="hymn-title" style="margin-bottom: 15px;"><i class="fa-solid fa-file-pdf" style="color: var(--purple-primary);"></i> منهج ${currentModuleText} لمرحلة ${stageName}</div>
+                    <div class="hymn-details" style="margin-bottom: 25px;">اضغط على الزر أدناه لفتح أو تحميل ملف الـ PDF الخاص بالمنهج.</div>
+                    <button class="view-lyrics-btn" onclick="window.open(encodeURI('${pdfPath}'), '_blank')">
+                        <i class="fa-solid fa-file-pdf"></i> فتح ملف المنهج (PDF)
+                    </button>
                 </div>`;
+        } else {
+            grid.innerHTML = soon;
         }
     }
+}
 
-    function openLyrics(s) { document.getElementById('lyricsModal').style.display = "block"; document.getElementById('modalImg').src = s; }
-    function closeLyrics() { document.getElementById('lyricsModal').style.display = "none"; }
+function displaySingleHymn(hymnId) {
+    $('hymnsMenu').style.display = 'none';
+    const grid = $('cardsGrid');
+    grid.innerHTML = '';
+    const item = schoolData.alhan[currentStage][currentTerm].find(h => h.id === hymnId);
+    if (!item) return;
+    grid.innerHTML = `
+        <div>
+            <button class="back-to-list-btn" onclick="loadData()"><i class="fa-solid fa-arrow-right"></i> العودة لقائمة الألحان</button>
+            <div class="hymn-card">
+                <div class="hymn-title">${item.title}</div>
+                <div class="hymn-details">${item.details}</div>
+                <div class="audio-wrapper">
+                    <audio controls><source src="${encodeURI(item.audio)}" type="audio/mpeg"></audio>
+                </div>
+                ${item.hasLyricsImg ? `<button class="view-lyrics-btn" onclick="openLyrics('${item.lyricsImg}')"><i class="fa-solid fa-image"></i> فتح صورة الكلمات الأصلية</button>` : ''}
+            </div>
+        </div>`;
+}
 
-    const modeBtn = document.getElementById('modeBtn');
-    modeBtn.addEventListener('click', () => {
-        if (document.body.getAttribute('data-theme') === 'light') {
-            document.body.removeAttribute('data-theme');
-            document.getElementById('modeText').textContent = 'الوضع المضيء';
-            document.getElementById('modeIcon').className = 'fa-solid fa-sun';
-        } else {
-            document.body.setAttribute('data-theme', 'light');
-            document.getElementById('modeText').textContent = 'الوضع الداكن';
-            document.getElementById('modeIcon').className = 'fa-solid fa-moon';
-        }
-    });
+function openLyrics(path) {
+    const img = $('modalImg'), msg = $('modalMsg');
+    msg.style.display = 'none'; img.style.display = 'block';
+    img.onerror = () => {
+        img.style.display = 'none';
+        msg.style.display = 'block';
+        msg.textContent = 'الصورة غير موجودة. تأكد من وجود الملف: ' + path;
+    };
+    img.src = encodeURI(path);
+    $('lyricsModal').style.display = 'block';
+}
+function closeLyrics() { $('lyricsModal').style.display = 'none'; }
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            document.getElementById('stagesSidebar').style.display = 'flex';
-            document.getElementById('contentMainArea').style.display = 'block';
-            if (document.getElementById('contentScreen').style.display === 'block') {
-                document.getElementById('backBtn').style.display = 'flex';
-            }
-        }
-    });
+$('modeBtn').addEventListener('click', () => {
+    const light = document.body.getAttribute('data-theme') === 'light';
+    if (light) {
+        document.body.removeAttribute('data-theme');
+    } else {
+        document.body.setAttribute('data-theme', 'light');
+    }
+    $('modeText').textContent = light ? 'الوضع المضيء' : 'الوضع الداكن';
+    $('modeIcon').className = light ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+});
+
+window.addEventListener('resize', () => {
+    if ($('contentScreen').style.display === 'block') {
+        renderScreen(history.state || { screen: 'stages' });
+    }
+});
 </script>
 </body>
 </html>

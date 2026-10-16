@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مدرسة الأرشيدياكون حبيب جرجس بشبرا الخيمة</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
         :root {
             --bg-dark:#07111e;
@@ -564,6 +563,7 @@
         .pdf-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 15px; background: var(--header-bg); border-bottom: 1px solid var(--border-purple); color: var(--text-light); }
         .pdf-bar-title { font-weight: bold; font-size: 16px; flex: 1; }
         .pdf-bar a, .pdf-bar button { background: var(--bg-card); border: 1px solid var(--purple-primary); color: var(--purple-primary); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; text-decoration: none; font-family: inherit; }
+        .pdf-frame { flex: 1; width: 100%; border: 0; background: #fff; }
         .pdf-scroll { flex: 1; overflow-y: auto; padding: 12px; -webkit-overflow-scrolling: touch; }
         .pdf-status { color: #fff; text-align: center; padding: 20px; font-size: 18px; }
         .pdf-page { width: 100%; max-width: 900px; margin: 0 auto 12px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
@@ -632,10 +632,7 @@
         <a id="pdfNewTab" href="#" target="_blank" rel="noopener">فتح في تبويب جديد</a>
         <button onclick="history.back()">إغلاق ✕</button>
     </div>
-    <div class="pdf-scroll" id="pdfScroll">
-        <div class="pdf-status" id="pdfStatus"></div>
-        <div id="pdfPages"></div>
-    </div>
+    <iframe id="pdfFrame" class="pdf-frame" title="PDF"></iframe>
 </div>
 
 <div id="lyricsModal" class="modal">
@@ -1574,102 +1571,38 @@ window.addEventListener('load', () => {
     history.replaceState({ screen: 'home' }, '');
 });
 
-// تسريع الـ PDF: sw.js بيخزّن الملف على جهاز المستخدم بعد أول فتح، وبعدها بيفتح فوراً
+// ===== عارض الـ PDF (مبسّط): بيعتمد على عارض المتصفح الأصلي =====
+// الموبايل: فتح مباشر في تبويب جديد (أسرع حاجة + زوم طبيعي + بيحمّل أول صفحة لوحده).
+// الكمبيوتر: iframe جوه الموقع. مفيش pdf.js ولا Service Worker ولا مكتبات من النت.
+
+// مسح أي Service Worker / كاش قديم كان ممكن يكون هو سبب التعليق
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(() => {});
-    });
+    navigator.serviceWorker.getRegistrations()
+        .then(rs => rs.forEach(r => r.unregister())).catch(() => {});
+}
+if (window.caches) {
+    caches.keys().then(ks => ks.forEach(k => caches.delete(k))).catch(() => {});
 }
 
-// تخزين نسخة كاملة من الـ PDF في الخلفية بعد ما أول صفحة تظهر (عشان المرات الجاية تفتح فوراً)
-const warmed = new Set();
-function warmPdf(path) {
-    const conn = navigator.connection;
-    if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return;
+function openPdf(path) {
     const url = encodeURI(path);
-    if (warmed.has(url)) return;
-    warmed.add(url);
-    fetch(url).catch(() => warmed.delete(url));
-}
-
-// ===== عارض الـ PDF: بيحمّل الصفحات اللي المستخدم بيشوفها بس =====
-const PDFJS_WORKER = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-let pdfTask = null, pdfDoc = null, pdfObserver = null;
-
-async function openPdf(path) {
-    const url = encodeURI(path);
-    const box = $('pdfPages'), status = $('pdfStatus');
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+    if (isTouch) {
+        // لازم يتنادى مباشرة من الضغطة عشان المتصفح ميمنعوش
+        const w = window.open(url, '_blank');
+        if (!w) location.href = url;
+        return;
+    }
     $('pdfTitle').textContent = `منهج ${currentModuleText} - ${stageNames[currentStage] || currentStage}`;
     $('pdfNewTab').href = url;
-    box.innerHTML = '';
-    status.style.display = 'block'; status.textContent = 'جاري التحميل...';
+    $('pdfFrame').src = url;
     $('pdfViewer').style.display = 'flex';
     document.body.style.overflow = 'hidden';
     history.pushState({ screen: 'pdf' }, '');
-
-    if (typeof pdfjsLib === 'undefined') {
-        status.textContent = 'تعذّر تشغيل العارض. استخدم زر "فتح في تبويب جديد".';
-        return;
-    }
-    pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
-    const task = pdfjsLib.getDocument({ url, disableAutoFetch: true, rangeChunkSize: 262144 });
-    pdfTask = task;
-    try {
-        const doc = await task.promise;
-        if (pdfTask !== task) return;
-        pdfDoc = doc;
-        const first = await doc.getPage(1);
-        const base = first.getViewport({ scale: 1 });
-        status.style.display = 'none';
-
-        // مكان فاضي لكل صفحة، وكل صفحة بتترسم لما تقرب من الشاشة
-        pdfObserver = new IntersectionObserver((entries) => {
-            entries.forEach(en => {
-                if (en.isIntersecting && !en.target.dataset.done) {
-                    en.target.dataset.done = '1';
-                    renderPdfPage(doc, Number(en.target.dataset.n), en.target, url);
-                }
-            });
-        }, { root: $('pdfScroll'), rootMargin: '600px 0px' });
-
-        for (let i = 1; i <= doc.numPages; i++) {
-            const holder = document.createElement('div');
-            holder.className = 'pdf-page';
-            holder.dataset.n = i;
-            holder.style.minHeight = Math.round(holder.clientWidth || box.clientWidth) * (base.height / base.width) + 'px';
-            box.appendChild(holder);
-            pdfObserver.observe(holder);
-        }
-    } catch (err) {
-        if (pdfTask !== task) return;
-        status.style.display = 'block';
-        status.textContent = 'تعذّر عرض الملف هنا. استخدم زر "فتح في تبويب جديد".';
-    }
-}
-
-async function renderPdfPage(doc, num, holder, url) {
-    try {
-        const page = await doc.getPage(num);
-        if (doc !== pdfDoc) return;
-        const v1 = page.getViewport({ scale: 1 });
-        const scale = holder.clientWidth / v1.width;
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const vp = page.getViewport({ scale: scale * dpr });
-        const canvas = document.createElement('canvas');
-        canvas.width = vp.width; canvas.height = vp.height;
-        await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
-        if (doc !== pdfDoc) return;
-        holder.style.minHeight = '';
-        holder.appendChild(canvas);
-        if (num === 1) setTimeout(() => warmPdf(decodeURI(url)), 1500);
-    } catch (e) { /* الصفحة هتتحمل تاني لو المستخدم رجع لها */ delete holder.dataset.done; }
 }
 
 function closePdf() {
-    if (pdfObserver) pdfObserver.disconnect();
-    if (pdfTask) pdfTask.destroy();
-    pdfTask = pdfDoc = pdfObserver = null;
-    $('pdfPages').innerHTML = '';
+    $('pdfFrame').src = 'about:blank';
     $('pdfViewer').style.display = 'none';
     document.body.style.overflow = '';
 }
